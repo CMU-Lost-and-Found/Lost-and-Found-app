@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29ED0E5B61B086476DD1FD23 /* Pods_CMU_Lost_and_Found.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */; };
+		400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 400788661E7B10ED0061B499 /* Default-568h@2x.png */; };
+		406D78121E803C7100A5ACD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406D78111E803C7100A5ACD1 /* GoogleService-Info.plist */; };
+		6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13211E7435BF00E94A37 /* AppDelegate.swift */; };
+		6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13231E7435BF00E94A37 /* ViewController.swift */; };
+		6C4B13271E7435BF00E94A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B13251E7435BF00E94A37 /* Main.storyboard */; };
+		6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B13281E7435BF00E94A37 /* Assets.xcassets */; };
+		6C4B132C1E7435BF00E94A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B132A1E7435BF00E94A37 /* LaunchScreen.storyboard */; };
+		6C4B13341E743CF800E94A37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B13331E743CF800E94A37 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		400788661E7B10ED0061B499 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		400788681E7B17140061B499 /* CMU-Lost-and-Found.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CMU-Lost-and-Found.entitlements"; sourceTree = "<group>"; };
+		406D78111E803C7100A5ACD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMU_Lost_and_Found.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4B131E1E7435BF00E94A37 /* CMU-Lost-and-Found.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CMU-Lost-and-Found.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4B13211E7435BF00E94A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6C4B13231E7435BF00E94A37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C4B13261E7435BF00E94A37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6C4B13281E7435BF00E94A37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C4B132B1E7435BF00E94A37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6C4B132D1E7435BF00E94A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C4B13331E743CF800E94A37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		78EC9C32DEA72EE5464D4F09 /* Pods-CMU-Lost-and-Found.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMU-Lost-and-Found.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found.debug.xcconfig"; sourceTree = "<group>"; };
+		AB760D1652D858ADC9AFBA0D /* Pods-CMU-Lost-and-Found.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMU-Lost-and-Found.release.xcconfig"; path = "Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6C4B131B1E7435BF00E94A37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29ED0E5B61B086476DD1FD23 /* Pods_CMU_Lost_and_Found.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B10A3953AD09EC839008936 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		194C0F79A0661A9636D3C608 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78EC9C32DEA72EE5464D4F09 /* Pods-CMU-Lost-and-Found.debug.xcconfig */,
+				AB760D1652D858ADC9AFBA0D /* Pods-CMU-Lost-and-Found.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C4B13151E7435BF00E94A37 = {
+			isa = PBXGroup;
+			children = (
+				400788661E7B10ED0061B499 /* Default-568h@2x.png */,
+				6C4B13201E7435BF00E94A37 /* CMU-Lost-and-Found */,
+				6C4B131F1E7435BF00E94A37 /* Products */,
+				194C0F79A0661A9636D3C608 /* Pods */,
+				0B10A3953AD09EC839008936 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6C4B131F1E7435BF00E94A37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C4B131E1E7435BF00E94A37 /* CMU-Lost-and-Found.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C4B13201E7435BF00E94A37 /* CMU-Lost-and-Found */ = {
+			isa = PBXGroup;
+			children = (
+				400788681E7B17140061B499 /* CMU-Lost-and-Found.entitlements */,
+				6C4B13331E743CF800E94A37 /* GoogleService-Info.plist */,
+				6C4B13211E7435BF00E94A37 /* AppDelegate.swift */,
+				6C4B13231E7435BF00E94A37 /* ViewController.swift */,
+				6C4B13251E7435BF00E94A37 /* Main.storyboard */,
+				6C4B13281E7435BF00E94A37 /* Assets.xcassets */,
+				6C4B132A1E7435BF00E94A37 /* LaunchScreen.storyboard */,
+				406D78111E803C7100A5ACD1 /* GoogleService-Info.plist */,
+				6C4B132D1E7435BF00E94A37 /* Info.plist */,
+			);
+			path = "CMU-Lost-and-Found";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6C4B131D1E7435BF00E94A37 /* CMU-Lost-and-Found */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C4B13301E7435BF00E94A37 /* Build configuration list for PBXNativeTarget "CMU-Lost-and-Found" */;
+			buildPhases = (
+				4BDAE1161B5EA8DB57106176 /* [CP] Check Pods Manifest.lock */,
+				6C4B131A1E7435BF00E94A37 /* Sources */,
+				6C4B131B1E7435BF00E94A37 /* Frameworks */,
+				6C4B131C1E7435BF00E94A37 /* Resources */,
+				DEF4597F26B3F10D4B3E5B40 /* [CP] Embed Pods Frameworks */,
+				E9F3AB53CF47E126F513DFDB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CMU-Lost-and-Found";
+			productName = "CMU-Lost-and-Found";
+			productReference = 6C4B131E1E7435BF00E94A37 /* CMU-Lost-and-Found.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6C4B13161E7435BF00E94A37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Watchanan;
+				TargetAttributes = {
+					6C4B131D1E7435BF00E94A37 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = LNN3K54DN9;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 6C4B13191E7435BF00E94A37 /* Build configuration list for PBXProject "CMU-Lost-and-Found" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6C4B13151E7435BF00E94A37;
+			productRefGroup = 6C4B131F1E7435BF00E94A37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C4B131D1E7435BF00E94A37 /* CMU-Lost-and-Found */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6C4B131C1E7435BF00E94A37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C4B132C1E7435BF00E94A37 /* LaunchScreen.storyboard in Resources */,
+				6C4B13341E743CF800E94A37 /* GoogleService-Info.plist in Resources */,
+				6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */,
+				400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */,
+				6C4B13271E7435BF00E94A37 /* Main.storyboard in Resources */,
+				406D78121E803C7100A5ACD1 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BDAE1161B5EA8DB57106176 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DEF4597F26B3F10D4B3E5B40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9F3AB53CF47E126F513DFDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C4B131A1E7435BF00E94A37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */,
+				6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6C4B13251E7435BF00E94A37 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C4B13261E7435BF00E94A37 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6C4B132A1E7435BF00E94A37 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C4B132B1E7435BF00E94A37 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6C4B132E1E7435BF00E94A37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6C4B132F1E7435BF00E94A37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6C4B13311E7435BF00E94A37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78EC9C32DEA72EE5464D4F09 /* Pods-CMU-Lost-and-Found.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CMU-Lost-and-Found/CMU-Lost-and-Found.entitlements";
+				DEVELOPMENT_TEAM = LNN3K54DN9;
+				INFOPLIST_FILE = "CMU-Lost-and-Found/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CPE497.CMU-Lost-and-Found";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6C4B13321E7435BF00E94A37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB760D1652D858ADC9AFBA0D /* Pods-CMU-Lost-and-Found.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CMU-Lost-and-Found/CMU-Lost-and-Found.entitlements";
+				DEVELOPMENT_TEAM = LNN3K54DN9;
+				INFOPLIST_FILE = "CMU-Lost-and-Found/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CPE497.CMU-Lost-and-Found";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C4B13191E7435BF00E94A37 /* Build configuration list for PBXProject "CMU-Lost-and-Found" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C4B132E1E7435BF00E94A37 /* Debug */,
+				6C4B132F1E7435BF00E94A37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C4B13301E7435BF00E94A37 /* Build configuration list for PBXNativeTarget "CMU-Lost-and-Found" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C4B13311E7435BF00E94A37 /* Debug */,
+				6C4B13321E7435BF00E94A37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6C4B13161E7435BF00E94A37 /* Project object */;
+}
