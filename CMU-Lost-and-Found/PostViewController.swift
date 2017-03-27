@@ -16,13 +16,31 @@ class PostViewController: UIViewController {
     @IBOutlet weak var post: UIBarButtonItem!
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
+    
+    
     var ref = FIRDatabase.database().reference()
+    var userID = String()
+    var firstNameObject = String()
+    var lastNameObject = String()
+    var username = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         namelabel.text = UserDefaults.standard.object(forKey: "first_name") as! String?
+        
+        ref = ref.child("Post").childByAutoId()
+        
+        userID = UserDefaults.standard.object(forKey: "id") as! String
+        
+        firstNameObject = UserDefaults.standard.object(forKey: "first_name") as! String
+        
+        lastNameObject = UserDefaults.standard.object(forKey: "last_name") as! String
+        
+        username = "\(firstNameObject) \(lastNameObject)"
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +51,9 @@ class PostViewController: UIViewController {
     @IBAction func clickPost(_ sender: Any) {
         
         
-        let posted = ["Post": postTXT.text]
+        let posted = ["UserID": userID,
+                      "Username": username,
+                      "Text": postTXT.text as Any] as [String : Any]
         ref.updateChildValues(posted)
         
     }

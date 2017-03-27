@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>589886335660-o924gg8mmsbov1m2mdqg2foljhbbdg2a.apps.googleusercontent.com</string>
+	<string>314374374176-n18i7egd80r515786trqts4n90k7sj5r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.589886335660-o924gg8mmsbov1m2mdqg2foljhbbdg2a</string>
+	<string>com.googleusercontent.apps.314374374176-n18i7egd80r515786trqts4n90k7sj5r</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCIAh1jaKwzgsiHEYpmjFfJSxIP0kFxnCI</string>
+	<string>AIzaSyDUwOTMjJ2ESEKKq0tLfy6GzP4QIlY_LaU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>589886335660</string>
+	<string>314374374176</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>th.co.thitiwat.Project-SE</string>
+	<string>CPE497.CMU-Lost-and-Found</string>
 	<key>PROJECT_ID</key>
-	<string>nscthailand-22da8</string>
+	<string>cmu-lost-and-found</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nscthailand-22da8.appspot.com</string>
+	<string>cmu-lost-and-found.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:589886335660:ios:9df9483142eaf3c7</string>
+	<string>1:314374374176:ios:3dd978d29cf01971</string>
 	<key>DATABASE_URL</key>
-	<string>https://nscthailand-22da8.firebaseio.com</string>
+	<string>https://cmu-lost-and-found.firebaseio.com</string>
 </dict>
 </plist>

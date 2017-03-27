@@ -10,7 +10,9 @@
 		29ED0E5B61B086476DD1FD23 /* Pods_CMU_Lost_and_Found.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */; };
 		400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 400788661E7B10ED0061B499 /* Default-568h@2x.png */; };
 		400984BD1E8992AE0012B2B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400984BC1E8992AE0012B2B5 /* SWRevealViewController.m */; };
-		4018D47A1E89C40700BC2061 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4018D4791E89C40700BC2061 /* GoogleService-Info.plist */; };
+		4018D47C1E89C65900BC2061 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4018D47B1E89C65900BC2061 /* GoogleService-Info.plist */; };
+		4018D47E1E89CBCD00BC2061 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */; };
+		4018D4801E89D40D00BC2061 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018D47F1E89D40D00BC2061 /* Post.swift */; };
 		407D38281E8997FE00D7FF10 /* PostFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D38271E8997FE00D7FF10 /* PostFoundViewController.swift */; };
 		407D382A1E89999900D7FF10 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D38291E89999900D7FF10 /* MenuViewController.swift */; };
 		407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */; };
@@ -29,7 +31,9 @@
 		400984BA1E8992AE0012B2B5 /* CMU-Lost-and-Found-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CMU-Lost-and-Found-Bridging-Header.h"; sourceTree = "<group>"; };
 		400984BB1E8992AE0012B2B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		400984BC1E8992AE0012B2B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		4018D4791E89C40700BC2061 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4018D47B1E89C65900BC2061 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4018D47F1E89D40D00BC2061 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		407D38271E8997FE00D7FF10 /* PostFoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFoundViewController.swift; sourceTree = "<group>"; };
 		407D38291E89999900D7FF10 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,11 +113,13 @@
 				407D38271E8997FE00D7FF10 /* PostFoundViewController.swift */,
 				407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */,
 				407D382F1E89A4AC00D7FF10 /* PostViewController.swift */,
+				4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */,
+				4018D47F1E89D40D00BC2061 /* Post.swift */,
 				6C4B13281E7435BF00E94A37 /* Assets.xcassets */,
 				6C4B132A1E7435BF00E94A37 /* LaunchScreen.storyboard */,
 				6C4B132D1E7435BF00E94A37 /* Info.plist */,
+				4018D47B1E89C65900BC2061 /* GoogleService-Info.plist */,
 				400984BA1E8992AE0012B2B5 /* CMU-Lost-and-Found-Bridging-Header.h */,
-				4018D4791E89C40700BC2061 /* GoogleService-Info.plist */,
 			);
 			path = "CMU-Lost-and-Found";
 			sourceTree = "<group>";
@@ -189,7 +195,7 @@
 			files = (
 				6C4B132C1E7435BF00E94A37 /* LaunchScreen.storyboard in Resources */,
 				6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */,
-				4018D47A1E89C40700BC2061 /* GoogleService-Info.plist in Resources */,
+				4018D47C1E89C65900BC2061 /* GoogleService-Info.plist in Resources */,
 				400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */,
 				6C4B13271E7435BF00E94A37 /* Main.storyboard in Resources */,
 			);
@@ -258,6 +264,8 @@
 				407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */,
 				6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */,
 				400984BD1E8992AE0012B2B5 /* SWRevealViewController.m in Sources */,
+				4018D47E1E89CBCD00BC2061 /* PostTableViewCell.swift in Sources */,
+				4018D4801E89D40D00BC2061 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
