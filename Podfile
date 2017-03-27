@@ -13,5 +13,7 @@ pod 'FBSDKLoginKit'
 pod 'Bolts'
 
 pod ‘Firebase/Auth’
+pod 'Firebase'
+pod 'Firebase/Database'
 
 end

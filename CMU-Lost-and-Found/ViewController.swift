@@ -32,6 +32,7 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
+        
         if error != nil {
             print(error)
             return
@@ -39,6 +40,11 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
         
         print("Successfully Loggedin Facebook")
         showDetail()
+        
+        performSegue(withIdentifier: "login", sender: nil)
+        
+
+        
     }
     
     func showDetail(){
@@ -58,14 +64,34 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
             print("Successfully Login with our user:",user as Any)
         })
         
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "id, name, email"]).start { (connection, result, error) in
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "id, first_name, last_name"]).start { (connection, result, error) in
             
             if error != nil{
                 print("Failed to Login", error as Any)
             }
+            let resultdict = result as? NSDictionary
+            let idvalue = resultdict?["id"] as? String
+                print("the id value is \(idvalue)")
+                UserDefaults.standard.set(idvalue, forKey: "id")
+            
+            
+            let firstName = resultdict?["first_name"] as? String
+                print("the firstName value is \(firstName)")
+                UserDefaults.standard.set(firstName, forKey: "first_name")
+        
+        
+            let lastName = resultdict?["last_name"] as? String 
+                print("the lastName value is \(lastName)")
+                UserDefaults.standard.set(lastName, forKey: "last_name")
+            
+            
+            let facebookProfileUrl = "http://graph.facebook.com/\(idvalue!)/picture?type=large"
+            UserDefaults.standard.set(facebookProfileUrl, forKey: "profilepic")
             
             print(result as Any)
 
+            
+            
         }
         
         
