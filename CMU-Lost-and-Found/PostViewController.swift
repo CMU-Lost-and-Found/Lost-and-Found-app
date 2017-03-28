@@ -49,13 +49,15 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func clickPost(_ sender: Any) {
-        
+       
         
         let posted = ["UserID": userID,
                       "Username": username,
                       "Text": postTXT.text as Any] as [String : Any]
         ref.updateChildValues(posted)
         
+        
+                
     }
 
     /*

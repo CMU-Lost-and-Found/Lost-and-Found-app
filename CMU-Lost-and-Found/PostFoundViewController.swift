@@ -11,12 +11,14 @@ import FirebaseDatabase
 import Firebase
 
 class PostFoundViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
     var post = [Post]()
 
     var ref = FIRDatabase.database().reference().child("Post")
+    var refhandle : UInt!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath) as! PostTableViewCell
         
-        print(post[indexPath.row])
+        print(" post = \(post[indexPath.row])")
         cell.namelabel.text = post[indexPath.row].username
         cell.postLabel.text = post[indexPath.row].posttxt
         
@@ -69,11 +71,12 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
                     print(postElement)
                     let post = Post()
                     post.username = postElement["Username"] as? String
-                    post.posttxt = postElement["post"] as? String
+                    post.posttxt = postElement["Text"] as? String
                     self.post.append(post)
                 }
                 print("post = \(self.post)")
-    
+                
+                self.tableView.reloadData()
             }
             
             
