@@ -17,6 +17,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     
+    @IBOutlet weak var descriptionText: UITextView!
     
     var ref = FIRDatabase.database().reference()
     var userID = String()
@@ -26,9 +27,7 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        namelabel.text = UserDefaults.standard.object(forKey: "first_name") as! String?
+        // Do any additional setup after loading the view.
         
         ref = ref.child("Post").childByAutoId()
         
@@ -39,7 +38,7 @@ class PostViewController: UIViewController {
         lastNameObject = UserDefaults.standard.object(forKey: "last_name") as! String
         
         username = "\(firstNameObject) \(lastNameObject)"
-        
+        namelabel.text = username
         
     }
 
@@ -53,7 +52,7 @@ class PostViewController: UIViewController {
         
         let posted = ["UserID": userID,
                       "Username": username,
-                      "Text": postTXT.text as Any] as [String : Any]
+                      "Text": descriptionText.text as Any] as [String : Any]
         ref.updateChildValues(posted)
         
         

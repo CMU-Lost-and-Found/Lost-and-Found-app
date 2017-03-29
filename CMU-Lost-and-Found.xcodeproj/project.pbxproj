@@ -23,6 +23,10 @@
 		6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13231E7435BF00E94A37 /* ViewController.swift */; };
 		6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B13281E7435BF00E94A37 /* Assets.xcassets */; };
 		6C4B132C1E7435BF00E94A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B132A1E7435BF00E94A37 /* LaunchScreen.storyboard */; };
+		FAA33B021E89FA0A00A3456D /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA33AFE1E89FA0A00A3456D /* profile.png */; };
+		FAA33B031E89FA0A00A3456D /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA33AFF1E89FA0A00A3456D /* setting.png */; };
+		FAA33B041E89FA0A00A3456D /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA33B001E89FA0A00A3456D /* notification.png */; };
+		FAA33B051E89FA0A00A3456D /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA33B011E89FA0A00A3456D /* history.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		6C4B132D1E7435BF00E94A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EC9C32DEA72EE5464D4F09 /* Pods-CMU-Lost-and-Found.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMU-Lost-and-Found.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found.debug.xcconfig"; sourceTree = "<group>"; };
 		AB760D1652D858ADC9AFBA0D /* Pods-CMU-Lost-and-Found.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMU-Lost-and-Found.release.xcconfig"; path = "Pods/Target Support Files/Pods-CMU-Lost-and-Found/Pods-CMU-Lost-and-Found.release.xcconfig"; sourceTree = "<group>"; };
+		FAA33AFE1E89FA0A00A3456D /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		FAA33AFF1E89FA0A00A3456D /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		FAA33B001E89FA0A00A3456D /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		FAA33B011E89FA0A00A3456D /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		6C4B13201E7435BF00E94A37 /* CMU-Lost-and-Found */ = {
 			isa = PBXGroup;
 			children = (
+				FAA33B061E89FA1E00A3456D /* images */,
 				400984BB1E8992AE0012B2B5 /* SWRevealViewController.h */,
 				400984BC1E8992AE0012B2B5 /* SWRevealViewController.m */,
 				400788681E7B17140061B499 /* CMU-Lost-and-Found.entitlements */,
@@ -122,6 +131,17 @@
 				400984BA1E8992AE0012B2B5 /* CMU-Lost-and-Found-Bridging-Header.h */,
 			);
 			path = "CMU-Lost-and-Found";
+			sourceTree = "<group>";
+		};
+		FAA33B061E89FA1E00A3456D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FAA33AFE1E89FA0A00A3456D /* profile.png */,
+				FAA33AFF1E89FA0A00A3456D /* setting.png */,
+				FAA33B001E89FA0A00A3456D /* notification.png */,
+				FAA33B011E89FA0A00A3456D /* history.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +213,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA33B051E89FA0A00A3456D /* history.png in Resources */,
 				6C4B132C1E7435BF00E94A37 /* LaunchScreen.storyboard in Resources */,
+				FAA33B021E89FA0A00A3456D /* profile.png in Resources */,
+				FAA33B041E89FA0A00A3456D /* notification.png in Resources */,
 				40C80F381E89E36D00AA02F0 /* Main.storyboard in Resources */,
+				FAA33B031E89FA0A00A3456D /* setting.png in Resources */,
 				6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */,
 				4018D47C1E89C65900BC2061 /* GoogleService-Info.plist in Resources */,
 				400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */,

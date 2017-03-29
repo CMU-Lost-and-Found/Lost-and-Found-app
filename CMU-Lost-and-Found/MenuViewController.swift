@@ -10,11 +10,16 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var userLogin: UILabel!
     var menulist = ["PostFeed","Profile","Notification","History","Setting"]
+    var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let firstName = UserDefaults.standard.object(forKey: "first_name")
+        let lastName = UserDefaults.standard.object(forKey: "last_name")
+        userLogin.text = "\(firstName!) \(lastName!)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +34,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuTableViewCell
         
+        cell.menuImage.image = UIImage(named: imagelist[indexPath.row])
         cell.menuLable.text = menulist[indexPath.row]
         return cell
     }
