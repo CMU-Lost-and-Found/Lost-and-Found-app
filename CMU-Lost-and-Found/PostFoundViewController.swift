@@ -13,11 +13,12 @@ import Firebase
 class PostFoundViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
     var post = [Post]()
 
-    var ref = FIRDatabase.database().reference().child("Post")
+    var ref = FIRDatabase.database().reference().child("Lost")
     var refhandle : UInt!
     
     override func viewDidLoad() {
@@ -57,10 +58,56 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         return cell
     }
     
+    
+    
+    
+    
+    @IBAction func clickPost(_ sender: Any) {
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
+        
+        self.addChildViewController(popOverVC)
+        
+        popOverVC.view.frame = self.view.frame
+        
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+        
+        
+    }
+    
+    @IBAction func changedPage(_ sender: Any) {
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+            
+            let desController = mainStory.instantiateViewController(withIdentifier: "PostFoundViewController") as! PostFoundViewController
+            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
+            
+            self.present(desController, animated: true, completion: nil)
+            
+        case 1:
+            
+            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+            
+            let desController = mainStory.instantiateViewController(withIdentifier: "PostLostViewController") as! PostLostViewController
+            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
+            
+            self.present(desController, animated: true, completion: nil)
+            
+        default:
+            break
+        }
+        
+        
+    }
+    
+    
     func loadData(){
         
         self.post.removeAll()
-        ref.observe(.value, with: { snapshot in
+        ref.queryOrdered(byChild: "Lost").observe(.value, with: { snapshot in
             
             //if !snapshot.exists() { return }
             

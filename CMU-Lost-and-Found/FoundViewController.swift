@@ -1,8 +1,8 @@
 //
-//  PostViewController.swift
+//  FoundViewController.swift
 //  CMU-Lost-and-Found
 //
-//  Created by Thitiwat on 3/28/2560 BE.
+//  Created by Thitiwat on 4/1/2560 BE.
 //  Copyright © 2560 Watchanan. All rights reserved.
 //
 
@@ -10,9 +10,11 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class PostViewController: UIViewController {
+class FoundViewController: UIViewController {
 
-    @IBOutlet weak var post: UIBarButtonItem!
+    
+    @IBOutlet weak var post: UIButton!
+    
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     
@@ -28,7 +30,7 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        ref = ref.child("Found").childByAutoId()
+        ref = ref.child("Lost").childByAutoId()
         
         userID = UserDefaults.standard.object(forKey: "id") as! String
         
@@ -40,47 +42,46 @@ class PostViewController: UIViewController {
         namelabel.text = username
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBAction func back(_ sender: Any) {
+        
+        let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+        
+        let desController = mainStory.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        self.present(desController, animated: true, completion: nil)
+    }
+    
+    
+    
     @IBAction func clickPost(_ sender: Any) {
-       
         
         let posted = ["UserID": userID,
                       "Username": username,
                       "Text": descriptionText.text as Any] as [String : Any]
         ref.updateChildValues(posted)
-        
-        
-                
-    }
 
-    @IBAction func back(_ sender: Any) {
-        
-        
-        let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
-            
-        let desController = mainStory.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        self.present(desController, animated: true, completion: nil)
         
         
         
         
-        
-       
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 
 }
