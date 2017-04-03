@@ -18,6 +18,7 @@
 		407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */; };
 		407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */; };
 		407D38301E89A4AC00D7FF10 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382F1E89A4AC00D7FF10 /* PostViewController.swift */; };
+		40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40994D4D1E92DA8A00852D89 /* LostTableViewCell.swift */; };
 		40C80F381E89E36D00AA02F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C80F361E89E36D00AA02F0 /* Main.storyboard */; };
 		40E127AF1E8FEC9F00347CDC /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */; };
 		40F4ED451E925A4500F9B93A /* PostLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4ED441E925A4500F9B93A /* PostLostViewController.swift */; };
@@ -46,6 +47,7 @@
 		407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		407D382F1E89A4AC00D7FF10 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		40994D4D1E92DA8A00852D89 /* LostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostTableViewCell.swift; sourceTree = "<group>"; };
 		40C80F371E89E36D00AA02F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
 		40F4ED441E925A4500F9B93A /* PostLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLostViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		40F4ED431E9258EE00F9B93A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				40994D4D1E92DA8A00852D89 /* LostTableViewCell.swift */,
 				4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */,
 				4018D47F1E89D40D00BC2061 /* Post.swift */,
 				407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */,
@@ -308,6 +311,7 @@
 				407D38301E89A4AC00D7FF10 /* PostViewController.swift in Sources */,
 				6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */,
 				407D382A1E89999900D7FF10 /* MenuViewController.swift in Sources */,
+				40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */,
 				407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */,
 				407D38281E8997FE00D7FF10 /* PostFoundViewController.swift in Sources */,
 				407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */,

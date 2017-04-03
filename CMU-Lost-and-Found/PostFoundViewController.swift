@@ -18,7 +18,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     
     var post = [Post]()
 
-    var ref = FIRDatabase.database().reference().child("Lost")
+    var ref = FIRDatabase.database().reference().child("Found")
     var refhandle : UInt!
     
     override func viewDidLoad() {
@@ -78,23 +78,25 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     
     @IBAction func changedPage(_ sender: Any) {
         
+        let revealViewController: SWRevealViewController = self.revealViewController()
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
-            let desController = mainStory.instantiateViewController(withIdentifier: "PostFoundViewController") as! PostFoundViewController
+            let desController = mainStory.instantiateViewController(withIdentifier:"PostFoundViewController") as! PostFoundViewController
             //let newFrontViewController = UINavigationController.init(rootViewController:desController)
             
-            self.present(desController, animated: true, completion: nil)
+            revealViewController.pushFrontViewController(desController, animated: true)
             
         case 1:
             
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
-            let desController = mainStory.instantiateViewController(withIdentifier: "PostLostViewController") as! PostLostViewController
+            let desController = mainStory.instantiateViewController(withIdentifier:"PostLostViewController") as! PostLostViewController
             //let newFrontViewController = UINavigationController.init(rootViewController:desController)
             
-            self.present(desController, animated: true, completion: nil)
+            revealViewController.pushFrontViewController(desController, animated: true)
             
         default:
             break
@@ -107,7 +109,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     func loadData(){
         
         self.post.removeAll()
-        ref.queryOrdered(byChild: "Lost").observe(.value, with: { snapshot in
+        ref.queryOrdered(byChild: "Found").observe(.value, with: { snapshot in
             
             //if !snapshot.exists() { return }
             

@@ -53,7 +53,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iSK-dT-ZjE" id="EdB-0E-Cuz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MenuList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a27-oe-K8b">
@@ -360,7 +360,7 @@
         <!--Post Lost View Controller-->
         <scene sceneID="Kx3-7J-bsn">
             <objects>
-                <viewController id="CWh-M7-Iep" customClass="PostLostViewController" customModule="CMU_Lost_and_Found" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostLostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CWh-M7-Iep" customClass="PostLostViewController" customModule="CMU_Lost_and_Found" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Isd-IW-N1l"/>
                         <viewControllerLayoutGuide type="bottom" id="3AM-NZ-jsG"/>
@@ -384,7 +384,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postcell" rowHeight="163" id="tGr-V4-roh" customClass="PostTableViewCell" customModule="CMU_Lost_and_Found" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lostcell" rowHeight="163" id="tGr-V4-roh" customClass="LostTableViewCell" customModule="CMU_Lost_and_Found" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGr-V4-roh" id="02A-WA-8Md">
@@ -426,42 +426,51 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="namelabel" destination="HSL-e1-rIo" id="IwS-9W-Bis"/>
-                                            <outlet property="postLabel" destination="BSN-CI-zA7" id="XT4-pR-BYD"/>
-                                            <outlet property="postPic" destination="v8x-Cn-g7M" id="jWf-73-icv"/>
+                                            <outlet property="namelabel" destination="HSL-e1-rIo" id="9B6-ne-MO3"/>
+                                            <outlet property="postLabel" destination="BSN-CI-zA7" id="hPe-lC-Mau"/>
+                                            <outlet property="postPic" destination="v8x-Cn-g7M" id="FfN-ly-gzl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="dEz-gr-0MW" id="EWz-SH-pXS"/>
-                                    <outlet property="delegate" destination="dEz-gr-0MW" id="0jp-ox-DQ5"/>
+                                    <outlet property="dataSource" destination="CWh-M7-Iep" id="vaQ-Ed-dUk"/>
+                                    <outlet property="delegate" destination="CWh-M7-Iep" id="VSC-9Z-fRZ"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLc-Aj-pOa">
                                 <rect key="frame" x="328" y="551" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="post:" destination="CWh-M7-Iep" eventType="touchUpInside" id="B85-jQ-NVR"/>
+                                </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bSg-Bm-pdT">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSg-Bm-pdT">
                                 <rect key="frame" x="16" y="619" width="343" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Lost"/>
                                     <segment title="Found"/>
+                                    <segment title="Lost"/>
                                 </segments>
                                 <color key="tintColor" red="0.49296433169999998" green="0.20099174519999999" blue="0.90351364209999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <action selector="changView:" destination="CWh-M7-Iep" eventType="valueChanged" id="Zmb-dZ-djf"/>
                                     <action selector="indexChanged:" destination="dEz-gr-0MW" eventType="valueChanged" id="qHU-Ae-QSO"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="btnMenu" destination="bIJ-3T-TGL" id="qaJ-Hg-av2"/>
+                        <outlet property="segmentedControl" destination="bSg-Bm-pdT" id="Y6k-xo-51t"/>
+                        <outlet property="tableView" destination="mhh-9o-8j3" id="ETg-PK-GNQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ai-Z3-bjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="823"/>
+            <point key="canvasLocation" x="1862" y="785"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="NDw-84-9LL">
