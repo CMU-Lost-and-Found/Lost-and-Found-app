@@ -27,6 +27,11 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         // Do any additional setup after loading the view.
         btnMenu.target = revealViewController()
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
         ref.observe(.value, with: { (snapshot:FIRDataSnapshot!) in
             
             print(snapshot.childrenCount)

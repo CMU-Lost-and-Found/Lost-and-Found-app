@@ -10,6 +10,7 @@
 		29ED0E5B61B086476DD1FD23 /* Pods_CMU_Lost_and_Found.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */; };
 		400788671E7B10ED0061B499 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 400788661E7B10ED0061B499 /* Default-568h@2x.png */; };
 		400984BD1E8992AE0012B2B5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400984BC1E8992AE0012B2B5 /* SWRevealViewController.m */; };
+		400ABAFD1E93FBF80080A3AF /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400ABAFC1E93FBF80080A3AF /* MenuView.swift */; };
 		4018D47C1E89C65900BC2061 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4018D47B1E89C65900BC2061 /* GoogleService-Info.plist */; };
 		4018D47E1E89CBCD00BC2061 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */; };
 		4018D4801E89D40D00BC2061 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018D47F1E89D40D00BC2061 /* Post.swift */; };
@@ -25,7 +26,6 @@
 		40C80F381E89E36D00AA02F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C80F361E89E36D00AA02F0 /* Main.storyboard */; };
 		40E127AF1E8FEC9F00347CDC /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */; };
 		40F4ED451E925A4500F9B93A /* PostLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4ED441E925A4500F9B93A /* PostLostViewController.swift */; };
-		40F4ED471E925C7B00F9B93A /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4ED461E925C7B00F9B93A /* PopUpViewController.swift */; };
 		6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13211E7435BF00E94A37 /* AppDelegate.swift */; };
 		6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13231E7435BF00E94A37 /* ViewController.swift */; };
 		6C4B13291E7435BF00E94A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C4B13281E7435BF00E94A37 /* Assets.xcassets */; };
@@ -42,6 +42,7 @@
 		400984BA1E8992AE0012B2B5 /* CMU-Lost-and-Found-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CMU-Lost-and-Found-Bridging-Header.h"; sourceTree = "<group>"; };
 		400984BB1E8992AE0012B2B5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		400984BC1E8992AE0012B2B5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		400ABAFC1E93FBF80080A3AF /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4018D47B1E89C65900BC2061 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4018D47D1E89CBCD00BC2061 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4018D47F1E89D40D00BC2061 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		40C80F371E89E36D00AA02F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
 		40F4ED441E925A4500F9B93A /* PostLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLostViewController.swift; sourceTree = "<group>"; };
-		40F4ED461E925C7B00F9B93A /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMU_Lost_and_Found.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4B131E1E7435BF00E94A37 /* CMU-Lost-and-Found.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CMU-Lost-and-Found.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4B13211E7435BF00E94A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 				408D6CCD1E933F3B00501023 /* PostFound.swift */,
 				408D6CCF1E933F6100501023 /* PostLost.swift */,
 				408D6CD11E93405200501023 /* Pop.swift */,
+				400ABAFC1E93FBF80080A3AF /* MenuView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -122,7 +123,6 @@
 				407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */,
 				407D382F1E89A4AC00D7FF10 /* PostViewController.swift */,
 				40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */,
-				40F4ED461E925C7B00F9B93A /* PopUpViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -336,8 +336,8 @@
 				407D38281E8997FE00D7FF10 /* PostFoundViewController.swift in Sources */,
 				407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */,
 				40F4ED451E925A4500F9B93A /* PostLostViewController.swift in Sources */,
-				40F4ED471E925C7B00F9B93A /* PopUpViewController.swift in Sources */,
 				6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */,
+				400ABAFD1E93FBF80080A3AF /* MenuView.swift in Sources */,
 				400984BD1E8992AE0012B2B5 /* SWRevealViewController.m in Sources */,
 				4018D47E1E89CBCD00BC2061 /* PostTableViewCell.swift in Sources */,
 				4018D4801E89D40D00BC2061 /* Post.swift in Sources */,

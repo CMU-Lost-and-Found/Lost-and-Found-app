@@ -28,6 +28,11 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Did logout of facebook")
+        FBSDKAccessToken.setCurrent(nil)
+        FBSDKProfile.setCurrent(nil)
+
+        
+        
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {

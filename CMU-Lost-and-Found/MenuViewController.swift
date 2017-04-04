@@ -10,10 +10,19 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePic: UIImageView!
+    
+    @IBOutlet weak var userLogin: UILabel!
+    
+    
     var menulist = ["PostFeed","Profile","Notification","History","Setting"]
     var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profilePic.layer.cornerRadius = self.profilePic.frame.height/2
+        profilePic.clipsToBounds = true
+        profilePic.layer.borderWidth = 3.0
+        profilePic.layer.borderColor = UIColor.white.cgColor
 
         // Do any additional setup after loading the view.
         let firstName = UserDefaults.standard.object(forKey: "first_name")

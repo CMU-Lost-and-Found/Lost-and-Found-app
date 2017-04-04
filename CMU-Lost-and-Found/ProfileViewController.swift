@@ -19,11 +19,27 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.height/2
+        self.profilePic.clipsToBounds = true
+        self.profilePic.layer.borderWidth = 3.0
+        self.profilePic.layer.borderColor = UIColor.white.cgColor
+        profilePic.contentMode = .scaleToFill
+        
+        let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
+        if let url = NSURL(string: profilePicObject as! String) {
+            if let data = NSData(contentsOf: url as URL){
+                profilePic.image = UIImage(data: data as Data)
+            }
+        }
+
+        
         
         // Do any additional setup after loading the view.
         btnMenu.target = revealViewController()
-        
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
         
         //let idObject = UserDefaults.standard.object(forKey: "id")
         let firstNameObject = UserDefaults.standard.object(forKey: "first_name")
@@ -36,12 +52,7 @@ class ProfileViewController: UIViewController {
         LinkFBButton.setTitle("\(linkObject!)", for: .normal)
         
         nameLabel.text = username
-        if let image = getProfPic(fid: "asd") {
-            profilePic?.image = image
-            
-        }
     }
-    
     
     @IBAction func didTapFBLink(_ sender: Any) {
         let linkObject = UserDefaults.standard.object(forKey: "link")

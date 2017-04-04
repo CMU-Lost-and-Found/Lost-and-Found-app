@@ -27,6 +27,11 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profilepic.layer.cornerRadius = self.profilepic.frame.height/2
+        profilepic.clipsToBounds = true
+        profilepic.layer.borderWidth = 3.0
+        profilepic.layer.borderColor = UIColor.white.cgColor
         // Do any additional setup after loading the view.
         
         self.showAnimate()
@@ -41,6 +46,14 @@ class PostViewController: UIViewController {
         
         username = "\(firstNameObject) \(lastNameObject)"
         namelabel.text = username
+        
+        let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
+        if let url = NSURL(string: profilePicObject as! String) {
+            if let data = NSData(contentsOf: url as URL){
+                profilepic.image = UIImage(data: data as Data)
+            }
+        }
+
         
     }
 
