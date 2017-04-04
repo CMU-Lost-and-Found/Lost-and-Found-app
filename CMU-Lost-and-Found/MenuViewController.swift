@@ -9,8 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var userLogin: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
     var menulist = ["PostFeed","Profile","Notification","History","Setting"]
     var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png"]
     override func viewDidLoad() {
@@ -20,6 +19,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let firstName = UserDefaults.standard.object(forKey: "first_name")
         let lastName = UserDefaults.standard.object(forKey: "last_name")
         userLogin.text = "\(firstName!) \(lastName!)"
+        let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
+        if let url = NSURL(string: profilePicObject as! String) {
+            if let data = NSData(contentsOf: url as URL){
+                profilePic.image = UIImage(data: data as Data)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +43,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.menuLable.text = menulist[indexPath.row]
         return cell
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let revealViewController: SWRevealViewController = self.revealViewController()
         
