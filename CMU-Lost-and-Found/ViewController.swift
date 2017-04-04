@@ -64,7 +64,7 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
             print("Successfully Login with our user:",user as Any)
         })
         
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "id, first_name, last_name"]).start { (connection, result, error) in
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "id, first_name, last_name,link"]).start { (connection, result, error) in
             
             if error != nil{
                 print("Failed to Login", error as Any)
@@ -84,8 +84,11 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
                 print("the lastName value is \(lastName)")
                 UserDefaults.standard.set(lastName, forKey: "last_name")
             
+            let link = resultdict?["link"] as? String
+            print("the link value is \(link)")
+            UserDefaults.standard.set(link, forKey: "link")
             
-            let facebookProfileUrl = "http://graph.facebook.com/\(idvalue!)/picture?type=large"
+            let facebookProfileUrl = "http://graph.facebook.com/\(idvalue!)/picture?width=100&height=100"
             UserDefaults.standard.set(facebookProfileUrl, forKey: "profilepic")
             
             print(result as Any)

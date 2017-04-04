@@ -54,6 +54,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         print(" post = \(post[indexPath.row])")
         cell.namelabel.text = post[indexPath.row].username
         cell.postLabel.text = post[indexPath.row].posttxt
+        cell.topic.text = post[indexPath.row].topic
         
         return cell
     }
@@ -64,7 +65,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     
     @IBAction func clickPost(_ sender: Any) {
         
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FoundViewController") as! FoundViewController
         
         self.addChildViewController(popOverVC)
         
@@ -121,6 +122,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
                     let post = Post()
                     post.username = postElement["Username"] as? String
                     post.posttxt = postElement["Text"] as? String
+                    post.topic = postElement["Topic"] as? String
                     self.post.append(post)
                 }
                 print("post = \(self.post)")

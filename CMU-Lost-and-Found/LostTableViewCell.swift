@@ -15,6 +15,7 @@ class LostTableViewCell: UITableViewCell {
     @IBOutlet weak var postPic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     
+    @IBOutlet weak var topic: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

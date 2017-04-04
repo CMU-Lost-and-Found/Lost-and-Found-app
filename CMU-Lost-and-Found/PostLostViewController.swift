@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class PostLostViewController: UIViewController {
+class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -55,6 +55,7 @@ class PostLostViewController: UIViewController {
         print(" post = \(post[indexPath.row])")
         cell.namelabel.text = post[indexPath.row].username
         cell.postLabel.text = post[indexPath.row].posttxt
+        cell.topic.text = post[indexPath.row].topic
         
         return cell
     }
@@ -63,7 +64,7 @@ class PostLostViewController: UIViewController {
     
     @IBAction func post(_ sender: Any) {
         
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
         
         self.addChildViewController(popOverVC)
         
@@ -119,6 +120,7 @@ class PostLostViewController: UIViewController {
                     let post = Post()
                     post.username = postElement["Username"] as? String
                     post.posttxt = postElement["Text"] as? String
+                    post.topic = postElement["Topic"] as? String
                     self.post.append(post)
                 }
                 print("post = \(self.post)")

@@ -16,6 +16,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     
+    @IBOutlet weak var topic: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     
     var ref = FIRDatabase.database().reference()
@@ -28,7 +29,9 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        ref = ref.child("Found").childByAutoId()
+        self.showAnimate()
+        
+        ref = ref.child("Lost").childByAutoId()
         
         userID = UserDefaults.standard.object(forKey: "id") as! String
         
@@ -47,32 +50,50 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func clickPost(_ sender: Any) {
-       
+        
         
         let posted = ["UserID": userID,
                       "Username": username,
-                      "Text": descriptionText.text as Any] as [String : Any]
+                      "Text": descriptionText.text,
+                      "Topic": topic.text as Any] as [String : Any]
         ref.updateChildValues(posted)
         
+        self.removeAnimate()
+        
+       
         
                 
     }
 
     @IBAction func back(_ sender: Any) {
         
-        
-        let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
-            
-        let desController = mainStory.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        
-        self.present(desController, animated: true, completion: nil)
-        
-        
-        
-        
-        
+        self.removeAnimate()
        
     }
+    
+    func showAnimate()
+    {
+        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.view.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 1.0
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
+    }
+    
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
+    }
+
     /*
     // MARK: - Navigation
 
