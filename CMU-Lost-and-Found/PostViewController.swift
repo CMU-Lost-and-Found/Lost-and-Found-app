@@ -78,9 +78,9 @@ class PostViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         }
-        else if  (topic.text?.characters.count)! >= 20 && (topic.text?.characters.count)! <= 80 {
+        else if  (topic.text?.characters.count)! >= 20 && (topic.text?.characters.count)! <= 150{
             
-            let alert = UIAlertController(title: "Topic-Alert", message: "Topic ต้องมีความย่าวระหว่าง 20 - 80  ", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Topic-Alert", message: "Topic ต้องมีความย่าวระหว่าง 20 - 150 อักษร  ", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }

@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         self.profilePic.layer.cornerRadius = self.profilePic.frame.height/2
         self.profilePic.clipsToBounds = true
         self.profilePic.layer.borderWidth = 3.0
-        self.profilePic.layer.borderColor = UIColor.blue.cgColor
+        self.profilePic.layer.borderColor = UIColor.white.cgColor
         profilePic.contentMode = .scaleToFill
         
         let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")

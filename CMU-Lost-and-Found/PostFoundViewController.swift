@@ -77,7 +77,11 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         
         myVC.passDes = post[indexPath.row].posttxt!
         myVC.passTopic = post[indexPath.row].topic!
-        myVC.name = post[indexPath.row].username!
+        myVC.passname = post[indexPath.row].username!
+        myVC.passtime = post[indexPath.row].time!
+        myVC.passbartitle = "Found"
+        let profilePicObject = post[indexPath.row].profilePic
+        myVC.passProPic = profilePicObject!
         
         
         self.present(myVC, animated: true, completion: nil)
@@ -96,6 +100,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
+        post.removeAll()
         
         
     }
@@ -152,7 +157,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
                 }
                 print("post = \(self.post)")
                 
-                self.post.sort(by: { $0.time! < $1.time! })
+                self.post.sort(by: { $0.time! > $1.time! })
                 
                 self.tableView.reloadData()
             }

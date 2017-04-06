@@ -10,12 +10,18 @@ import UIKit
 
 class PostDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var navBarPostDetail: UINavigationBar!
     var passTopic = String()
     var passDes = String()
-    var name = String()
+    var passname = String()
+    var passtime = String()
+    var passbartitle = String()
+    var passProPic	= String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navBarPostDetail.topItem?.title = passbartitle
 
         // Do any additional setup after loading the view.
     }
@@ -39,8 +45,13 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell1.topic.text = passTopic
         cell1.des.text = passDes
-        cell1.name.text = name
-        
+        cell1.name.text = passname
+        cell1.time.text = passtime
+        if let url = NSURL(string: passProPic) {
+            if let data = NSData(contentsOf: url as URL){
+                cell1.profilePic.image = UIImage(data: data as Data)
+            }
+        }
         
         return cell1
     }
