@@ -26,6 +26,7 @@ class FoundViewController: UIViewController {
     var firstNameObject = String()
     var lastNameObject = String()
     var username = String()
+    let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ class FoundViewController: UIViewController {
         username = "\(firstNameObject) \(lastNameObject)"
         namelabel.text = username
         
-        let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
+        
         if let url = NSURL(string: profilePicObject as! String) {
             if let data = NSData(contentsOf: url as URL){
                 profilepic.image = UIImage(data: data as Data)
@@ -85,14 +86,37 @@ class FoundViewController: UIViewController {
     
     
     @IBAction func clickPost(_ sender: Any) {
-        
-        
-        let posted = ["UserID": userID,
-                      "Username": username,
-                      "Text": descriptionText.text,
-                      "Topic": topic.text as Any] as [String : Any]
-        ref.updateChildValues(posted)
-        self.removeAnimate()
+        if descriptionText.text.characters.count == 0 {
+            let alert = UIAlertController(title: "Alert", message: "กรุณาใส่ข้อความ", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else if  (topic.text?.characters.count)! >= 20 && (topic.text?.characters.count)! <= 80 {
+            
+            let alert = UIAlertController(title: "Topic-Alert", message: "Topic ต้องมีความย่าวระหว่าง 20 - 80  ", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'|'HH:mm:ss"
+            formatter.timeZone = TimeZone(secondsFromGMT: -7)
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            
+            let posted = ["Time": formatter.string(from: date),
+                          "UserID": userID,
+                          "Username": username,
+                          "Text": descriptionText.text,
+                          "LinkPicture": profilePicObject!,
+                          "Topic": topic.text as Any] as [String : Any]
+            ref.updateChildValues(posted)
+            
+            self.removeAnimate()
+            
+        }
         
     }
     

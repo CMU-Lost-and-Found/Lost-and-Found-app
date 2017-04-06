@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
         self.profilePic.layer.cornerRadius = self.profilePic.frame.height/2
         self.profilePic.clipsToBounds = true
         self.profilePic.layer.borderWidth = 3.0
-        self.profilePic.layer.borderColor = UIColor.white.cgColor
+        self.profilePic.layer.borderColor = UIColor.blue.cgColor
         profilePic.contentMode = .scaleToFill
         
         let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
@@ -61,17 +61,6 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    
-    func getProfPic(fid: String) -> UIImage? {
-        let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
-        if let url = NSURL(string: profilePicObject as! String) {
-            if let data = NSData(contentsOf: url as URL){
-                profilePic.image = UIImage(data: data as Data)
-                
-            }
-        }
-        return nil
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

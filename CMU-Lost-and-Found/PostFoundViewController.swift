@@ -60,6 +60,14 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         cell.namelabel.text = post[indexPath.row].username
         cell.postLabel.text = post[indexPath.row].posttxt
         cell.topic.text = post[indexPath.row].topic
+        cell.time.text = post[indexPath.row].time
+        
+        let profilePicObject = post[indexPath.row].profilePic
+        if let url = NSURL(string: profilePicObject!) {
+            if let data = NSData(contentsOf: url as URL){
+                cell.profile.image = UIImage(data: data as Data)
+            }
+        }
         
         return cell
     }
@@ -138,9 +146,13 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
                     post.username = postElement["Username"] as? String
                     post.posttxt = postElement["Text"] as? String
                     post.topic = postElement["Topic"] as? String
+                    post.profilePic = postElement["LinkPicture"] as? String
+                    post.time = postElement["Time"] as? String
                     self.post.append(post)
                 }
                 print("post = \(self.post)")
+                
+                self.post.sort(by: { $0.time! < $1.time! })
                 
                 self.tableView.reloadData()
             }

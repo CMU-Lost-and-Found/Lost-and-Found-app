@@ -10,8 +10,10 @@ import UIKit
 
 class LostTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var postLabel: UILabel!
     
+    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var postPic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     

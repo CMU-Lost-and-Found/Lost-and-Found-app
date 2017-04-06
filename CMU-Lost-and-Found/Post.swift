@@ -14,6 +14,8 @@ class Post : NSObject{
     var username:String?
     var posttxt:String?
     var topic:String?
+    var profilePic:String?
+    var time: String?
     
     
 }
