@@ -64,6 +64,16 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
+        
+        myVC.passDes = post[indexPath.row].posttxt!
+        myVC.passTopic = post[indexPath.row].topic!
+        myVC.name = post[indexPath.row].username!
+        
+        
+        self.present(myVC, animated: true, completion: nil)
+    }
     
     
     

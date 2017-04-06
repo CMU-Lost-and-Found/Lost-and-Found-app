@@ -76,21 +76,21 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
             }
             let resultdict = result as? NSDictionary
             let idvalue = resultdict?["id"] as? String
-                print("the id value is \(idvalue)")
+                print("the id value is \(String(describing: idvalue))")
                 UserDefaults.standard.set(idvalue, forKey: "id")
             
             
             let firstName = resultdict?["first_name"] as? String
-                print("the firstName value is \(firstName)")
+                print("the firstName value is \(String(describing: firstName))")
                 UserDefaults.standard.set(firstName, forKey: "first_name")
         
         
             let lastName = resultdict?["last_name"] as? String 
-                print("the lastName value is \(lastName)")
+                print("the lastName value is \(String(describing: lastName))")
                 UserDefaults.standard.set(lastName, forKey: "last_name")
             
             let link = resultdict?["link"] as? String
-            print("the link value is \(link)")
+            print("the link value is \(String(describing: link))")
             UserDefaults.standard.set(link, forKey: "link")
             
             let facebookProfileUrl = "http://graph.facebook.com/\(idvalue!)/picture?width=100&height=100"

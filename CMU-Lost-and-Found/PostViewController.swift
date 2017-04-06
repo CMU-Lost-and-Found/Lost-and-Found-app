@@ -56,6 +56,13 @@ class PostViewController: UIViewController {
 
         
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        topic.resignFirstResponder()
+        descriptionText.resignFirstResponder()
+        
+        return true
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -56,7 +56,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func didTapFBLink(_ sender: Any) {
         let linkObject = UserDefaults.standard.object(forKey: "link")
-        if let url = NSURL(string: "\(linkObject)"){
+        if let url = NSURL(string: "\(String(describing: linkObject))"){
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
