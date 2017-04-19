@@ -11,6 +11,7 @@ import UIKit
 
 class Post : NSObject{
     
+    var postID:String?
     var username:String?
     var posttxt:String?
     var topic:String?

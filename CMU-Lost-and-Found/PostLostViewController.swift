@@ -31,13 +31,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
-        ref.observe(.value, with: { (snapshot:FIRDataSnapshot!) in
-            
-            
-            print(snapshot.childrenCount)
-            print(snapshot)
-        })
-        
         loadData()
     }
     
@@ -79,6 +72,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         myVC.passTopic = post[indexPath.row].topic!
         myVC.passname = post[indexPath.row].username!
         myVC.passtime = post[indexPath.row].time!
+        myVC.postID = post[indexPath.row].postID!
         myVC.passbartitle = "Lost"
         let profilePicObject = post[indexPath.row].profilePic
         myVC.passProPic = profilePicObject!
@@ -141,10 +135,11 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
             
             if let postDict = snapshot.value as? [String : AnyObject]{
                 
-                for(_,postElement) in postDict{
+                for(postID,postElement) in postDict{
                     
-                    print(postElement)
+                    //print(postElement)
                     let post = Post()
+                    post.postID = postID
                     post.username = postElement["Username"] as? String
                     post.posttxt = postElement["Text"] as? String
                     post.topic = postElement["Topic"] as? String

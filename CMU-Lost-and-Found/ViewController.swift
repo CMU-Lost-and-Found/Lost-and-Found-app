@@ -56,7 +56,7 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate{
     func loggedIn() {
         
         let accessToken = FBSDKAccessToken.current()
-        guard let accessTokenString = accessToken?.tokenString else{return}
+        guard (accessToken?.tokenString) != nil else{return}
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "id, first_name, last_name,link"]).start { (connection, result, error) in
             

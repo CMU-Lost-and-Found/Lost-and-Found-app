@@ -23,9 +23,12 @@
 		408D6CD01E933F6100501023 /* PostLost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D6CCF1E933F6100501023 /* PostLost.swift */; };
 		408D6CD21E93405200501023 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D6CD11E93405200501023 /* Pop.swift */; };
 		40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40994D4D1E92DA8A00852D89 /* LostTableViewCell.swift */; };
+		40BBC0131EA267F700B4B971 /* PostReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBC0121EA267F700B4B971 /* PostReplyTableViewCell.swift */; };
+		40BBC0151EA2682400B4B971 /* ReplyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBC0141EA2682400B4B971 /* ReplyTableViewCell.swift */; };
 		40C80F381E89E36D00AA02F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C80F361E89E36D00AA02F0 /* Main.storyboard */; };
 		40D25C401E96259A00CECB95 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D25C3F1E96259A00CECB95 /* PostDetailViewController.swift */; };
 		40D25C421E9630D900CECB95 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D25C411E9630D900CECB95 /* HeaderTableViewCell.swift */; };
+		40E0DC391EA74791000BAEB9 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0DC381EA74791000BAEB9 /* Reply.swift */; };
 		40E127AF1E8FEC9F00347CDC /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */; };
 		40F4ED451E925A4500F9B93A /* PostLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4ED441E925A4500F9B93A /* PostLostViewController.swift */; };
 		6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13211E7435BF00E94A37 /* AppDelegate.swift */; };
@@ -57,9 +60,12 @@
 		408D6CCF1E933F6100501023 /* PostLost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLost.swift; sourceTree = "<group>"; };
 		408D6CD11E93405200501023 /* Pop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
 		40994D4D1E92DA8A00852D89 /* LostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostTableViewCell.swift; sourceTree = "<group>"; };
+		40BBC0121EA267F700B4B971 /* PostReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReplyTableViewCell.swift; sourceTree = "<group>"; };
+		40BBC0141EA2682400B4B971 /* ReplyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTableViewCell.swift; sourceTree = "<group>"; };
 		40C80F371E89E36D00AA02F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40D25C3F1E96259A00CECB95 /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		40D25C411E9630D900CECB95 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		40E0DC381EA74791000BAEB9 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
 		40F4ED441E925A4500F9B93A /* PostLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLostViewController.swift; sourceTree = "<group>"; };
 		49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMU_Lost_and_Found.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +146,9 @@
 				4018D47F1E89D40D00BC2061 /* Post.swift */,
 				407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */,
 				40D25C411E9630D900CECB95 /* HeaderTableViewCell.swift */,
+				40BBC0121EA267F700B4B971 /* PostReplyTableViewCell.swift */,
+				40BBC0141EA2682400B4B971 /* ReplyTableViewCell.swift */,
+				40E0DC381EA74791000BAEB9 /* Reply.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -331,7 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BBC0131EA267F700B4B971 /* PostReplyTableViewCell.swift in Sources */,
 				407D38301E89A4AC00D7FF10 /* PostViewController.swift in Sources */,
+				40BBC0151EA2682400B4B971 /* ReplyTableViewCell.swift in Sources */,
 				408D6CD01E933F6100501023 /* PostLost.swift in Sources */,
 				40D25C421E9630D900CECB95 /* HeaderTableViewCell.swift in Sources */,
 				408D6CCE1E933F3B00501023 /* PostFound.swift in Sources */,
@@ -339,6 +350,7 @@
 				407D382A1E89999900D7FF10 /* MenuViewController.swift in Sources */,
 				408D6CD21E93405200501023 /* Pop.swift in Sources */,
 				40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */,
+				40E0DC391EA74791000BAEB9 /* Reply.swift in Sources */,
 				407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */,
 				407D38281E8997FE00D7FF10 /* PostFoundViewController.swift in Sources */,
 				407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */,
