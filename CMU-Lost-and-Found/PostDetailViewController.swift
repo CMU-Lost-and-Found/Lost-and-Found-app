@@ -35,11 +35,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         username = "\(firstNameObject) \(lastNameObject)"
         navBarPostDetail.topItem?.title = passbartitle
         print(postID)
-        let ref = FIRDatabase.database().reference().child(passbartitle).child(postID)
-        
-        ref.observe(.value, with: { (snapshot) in
-            print(snapshot)
-        })
         
         loadData()
 
@@ -103,6 +98,19 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if(indexPath.row == 0){
+            return 300;
+        }
+        else if(indexPath.row > 0 && indexPath.row <= reply.count){
+            return 100;
+        }
+        else{
+            return 100; //a default size if the cell index path is anything other than the 1st or second row.
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -132,7 +140,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     reply.time = postElement["Time"] as? String
                     self.reply.append(reply)
                 }
-                self.reply.sort(by: { $0.time! > $1.time! })
+                self.reply.sort(by: { $0.time! < $1.time! })
             }
             
             
