@@ -15,5 +15,8 @@ pod 'Bolts'
 pod ‘Firebase/Auth’
 pod 'Firebase'
 pod 'Firebase/Database'
+pod 'Firebase/Core'
+pod 'ImagePicker'
+pod 'Firebase/Storage'
 
 end

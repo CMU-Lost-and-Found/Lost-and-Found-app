@@ -106,6 +106,13 @@ class PostViewController: UIViewController {
         
                 
     }
+    @IBAction func pickImage(_ sender: Any) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ImagePickerViewController") as! ImagePickerViewController
+        
+        present(myVC, animated: true, completion: nil)
+        
+        
+    }
 
     @IBAction func back(_ sender: Any) {
         
