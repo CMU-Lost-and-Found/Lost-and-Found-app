@@ -30,7 +30,6 @@
 		40D25C421E9630D900CECB95 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D25C411E9630D900CECB95 /* HeaderTableViewCell.swift */; };
 		40E0DC391EA74791000BAEB9 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E0DC381EA74791000BAEB9 /* Reply.swift */; };
 		40E127AF1E8FEC9F00347CDC /* FoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */; };
-		40E57F6E1EA90251000C78F3 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E57F6D1EA90251000C78F3 /* ImagePickerViewController.swift */; };
 		40F4ED451E925A4500F9B93A /* PostLostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4ED441E925A4500F9B93A /* PostLostViewController.swift */; };
 		6C4B13221E7435BF00E94A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13211E7435BF00E94A37 /* AppDelegate.swift */; };
 		6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4B13231E7435BF00E94A37 /* ViewController.swift */; };
@@ -68,7 +67,6 @@
 		40D25C411E9630D900CECB95 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		40E0DC381EA74791000BAEB9 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundViewController.swift; sourceTree = "<group>"; };
-		40E57F6D1EA90251000C78F3 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		40F4ED441E925A4500F9B93A /* PostLostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLostViewController.swift; sourceTree = "<group>"; };
 		49E4AB16F5620BE40E41F202 /* Pods_CMU_Lost_and_Found.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMU_Lost_and_Found.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C4B131E1E7435BF00E94A37 /* CMU-Lost-and-Found.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CMU-Lost-and-Found.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,11 +130,10 @@
 				407D38291E89999900D7FF10 /* MenuViewController.swift */,
 				407D38271E8997FE00D7FF10 /* PostFoundViewController.swift */,
 				40F4ED441E925A4500F9B93A /* PostLostViewController.swift */,
-				407D382F1E89A4AC00D7FF10 /* PostViewController.swift */,
 				40E127AE1E8FEC9F00347CDC /* FoundViewController.swift */,
+				407D382F1E89A4AC00D7FF10 /* PostViewController.swift */,
 				407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */,
 				40D25C3F1E96259A00CECB95 /* PostDetailViewController.swift */,
-				40E57F6D1EA90251000C78F3 /* ImagePickerViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -353,7 +350,6 @@
 				407D382A1E89999900D7FF10 /* MenuViewController.swift in Sources */,
 				408D6CD21E93405200501023 /* Pop.swift in Sources */,
 				40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */,
-				40E57F6E1EA90251000C78F3 /* ImagePickerViewController.swift in Sources */,
 				40E0DC391EA74791000BAEB9 /* Reply.swift in Sources */,
 				407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */,
 				407D38281E8997FE00D7FF10 /* PostFoundViewController.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 class HeaderTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var topic: UILabel!

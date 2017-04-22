@@ -14,8 +14,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var userLogin: UILabel!
     
     
-    var menulist = ["PostFeed","Profile","Notification","History","Setting"]
-    var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png"]
+    var menulist = ["PostFeed","Profile","Notification","History","Setting","Logout"]
+    var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png",""]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,8 +63,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
-            
             revealViewController.pushFrontViewController(desController, animated: true)
         }
         
@@ -73,23 +71,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier: "PostFoundViewController") as! PostFoundViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
-            
             revealViewController.pushFrontViewController(desController, animated: true)
         }
-
         
-        
+        if cell.menuLable.text == "Logout" {
+            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+            
+            let desController = mainStory.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            present(desController, animated: true, completion: nil)
+            UserDefaults.standard.removeObject(forKey: "id")
+        }
             
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

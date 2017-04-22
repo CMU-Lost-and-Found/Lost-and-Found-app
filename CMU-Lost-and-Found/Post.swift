@@ -17,6 +17,6 @@ class Post : NSObject{
     var topic:String?
     var profilePic:String?
     var time: String?
-    
+    var image : String?
     
 }

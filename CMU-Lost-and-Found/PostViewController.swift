@@ -10,16 +10,26 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class PostViewController: UIViewController {
+
+class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var post: UIBarButtonItem!
     @IBOutlet weak var profilepic: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     
+    @IBOutlet weak var imageAdd: UIImageView!
     @IBOutlet weak var topic: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
     
+    var imagePicker : UIImagePickerController!
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var imageSelected = false
+    var downloadUrl : String?
+    
+    
+    
     var ref = FIRDatabase.database().reference()
+    let storageRef = FIRStorage.storage().reference()
     var userID = String()
     var firstNameObject = String()
     var lastNameObject = String()
@@ -28,6 +38,10 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         profilepic.layer.cornerRadius = self.profilepic.frame.height/2
         profilepic.clipsToBounds = true
@@ -71,8 +85,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func clickPost(_ sender: Any) {
-        
-        if descriptionText.text.characters.count == 0 {
+            if descriptionText.text.characters.count == 0 {
             let alert = UIAlertController(title: "Alert", message: "กรุณาใส่ข้อความ", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -96,22 +109,14 @@ class PostViewController: UIViewController {
                           "UserID": userID,
                           "Username": username,
                           "Text": descriptionText.text,
-                          "LinkPicture": profilePicObject!,
-                          "Topic": topic.text as Any] as [String : Any]
+                          "UserImage": profilePicObject!,
+                          "Topic": topic.text!,
+                          "ImageUrl" : downloadUrl!] as [String : Any]
             ref.updateChildValues(posted)
         
             self.removeAnimate()
         
         }
-        
-                
-    }
-    @IBAction func pickImage(_ sender: Any) {
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "ImagePickerViewController") as! ImagePickerViewController
-        
-        present(myVC, animated: true, completion: nil)
-        
-        
     }
 
     @IBAction func back(_ sender: Any) {
@@ -142,15 +147,31 @@ class PostViewController: UIViewController {
             }
         });
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addImageTapped(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
     }
-    */
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageAdd.image = image
+            print("ImagePicker : Selected")
+            let imgUid = NSUUID().uuidString
+            var data = NSData()
+            data = UIImageJPEGRepresentation(imageAdd.image!, 0.8)! as NSData
+            // set upload path
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            storageRef.child(imgUid).put(data as Data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    //store downloadURL
+                    self.downloadUrl = metaData!.downloadURL()!.absoluteString
+                    print("Successfully to upload : \(self.downloadUrl!)")
+                }
+            }
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
 }

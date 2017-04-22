@@ -62,6 +62,12 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                 cell.profile.image = UIImage(data: data as Data)
             }
         }
+        let img = post[indexPath.row].image
+        if let url = NSURL(string: img!) {
+            if let data = NSData(contentsOf: url as URL){
+                cell.postPic.image = UIImage(data: data as Data)
+            }
+        }
         
         return cell
     }
@@ -75,6 +81,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         myVC.passtime = post[indexPath.row].time!
         myVC.postID = post[indexPath.row].postID!
         myVC.passbartitle = "Lost"
+        myVC.passImage = post[indexPath.row].image!
         let profilePicObject = post[indexPath.row].profilePic
         myVC.passProPic = profilePicObject!
         
@@ -144,8 +151,9 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                     post.username = postElement["Username"] as? String
                     post.posttxt = postElement["Text"] as? String
                     post.topic = postElement["Topic"] as? String
-                    post.profilePic = postElement["LinkPicture"] as? String
+                    post.profilePic = postElement["UserImage"] as? String
                     post.time = postElement["Time"] as? String
+                    post.image = postElement["ImageUrl"] as? String
                     self.post.append(post)
                 }
                 print("post = \(self.post)")

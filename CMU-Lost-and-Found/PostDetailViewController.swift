@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class PostDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var postImage: UIImageView!
+    
     @IBOutlet weak var navBarPostDetail: UINavigationBar!
     var postID = String()
     var passTopic = String()
@@ -20,6 +22,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var passbartitle = String()
     var passProPic	= String()
     var reply = [Reply]()
+    var passImage = String()
 
     let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
     let firstNameObject = UserDefaults.standard.object(forKey: "first_name") as! String
@@ -68,6 +71,11 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     cell.profilePic.image = UIImage(data: data as Data)
                     }
                 }
+            if let url = NSURL(string: passImage) {
+                if let data = NSData(contentsOf: url as URL){
+                    cell.postImage.image = UIImage(data: data as Data)
+                }
+            }
             return cell
         }
         else if indexPath.row > 0 && indexPath.row <= reply.count{
