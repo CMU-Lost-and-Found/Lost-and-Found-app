@@ -25,15 +25,13 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredPost = postarray.filter{
-            posttopic in return (posttopic.topic!.lowercased().contains(searchText.lowercased()))
+            post in return post.topic!.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
-        // code here
-        
+            filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +41,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         loadData()
@@ -55,9 +52,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
     
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,9 +60,9 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != ""{
+            print("post count = \(filteredPost.count)")
             return self.filteredPost.count
         }
-        print("post count = \(postarray.count)")
         return self.postarray.count
     }
     
@@ -81,11 +75,11 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         if searchController.isActive && searchController.searchBar.text != ""{
             post = filteredPost[indexPath.row]
+            print(" post555 = \(filteredPost[indexPath.row])")
         }
         else {
             post = postarray[indexPath.row]
         }
-        print(" post = \(postarray[indexPath.row])")
         cell.namelabel.text = post.username
         cell.postLabel.text = post.posttxt
         cell.topic.text = post.topic
