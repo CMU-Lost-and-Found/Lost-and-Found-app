@@ -19,6 +19,8 @@ class ViewController: UIViewController{
         if let _ = UserDefaults.standard.object(forKey: "id"){
             performSegue(withIdentifier: "login", sender: nil)
         }
+        FBSDKAccessToken.setCurrent(nil)
+        FBSDKProfile.setCurrent(nil)
         
     }
     

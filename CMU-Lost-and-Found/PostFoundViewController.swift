@@ -10,17 +10,31 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 
-class PostFoundViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
-    var post = [Post]()
+    var postarray = [Post]()
 
     var ref = FIRDatabase.database().reference().child("Found")
     var refhandle : UInt!
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredPost = [Post]()
     
+    func filterContentForSearchText(searchText: String, scope: String = "All"){
+        filteredPost = postarray.filter{
+            posttopic in return (posttopic.topic!.lowercased().contains(searchText.lowercased()))
+        }
+        tableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        // code here
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,63 +47,82 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         loadData()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
+        
     }
     
-
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("post count = \(post.count)")
-        return self.post.count
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return self.filteredPost.count
+        }
+        print("post count = \(postarray.count)")
+        return self.postarray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath) as! PostTableViewCell
         
-        print(" post = \(post[indexPath.row])")
-        cell.namelabel.text = post[indexPath.row].username
-        cell.postLabel.text = post[indexPath.row].posttxt
-        cell.topic.text = post[indexPath.row].topic
-        cell.time.text = post[indexPath.row].time
-        cell.statusImg.isHidden = post[indexPath.row].postStatus!
-        let profilePicObject = post[indexPath.row].profilePic
+        
+        let post: Post
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            post = filteredPost[indexPath.row]
+        }
+        else {
+            post = postarray[indexPath.row]
+        }
+        print(" post = \(postarray[indexPath.row])")
+        cell.namelabel.text = post.username
+        cell.postLabel.text = post.posttxt
+        cell.topic.text = post.topic
+        cell.time.text = post.time
+        cell.statusImg.isHidden = post.postStatus!
+        let profilePicObject = post.profilePic
         if let url = NSURL(string: profilePicObject!) {
             if let data = NSData(contentsOf: url as URL){
                 cell.profile.image = UIImage(data: data as Data)
             }
         }
-        let img = post[indexPath.row].image
+        let img = post.image
         if let url = NSURL(string: img!) {
             if let data = NSData(contentsOf: url as URL){
                 cell.postPic.image = UIImage(data: data as Data)
             }
         }
-        
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
         
-        myVC.passDes = post[indexPath.row].posttxt!
-        myVC.passTopic = post[indexPath.row].topic!
-        myVC.passname = post[indexPath.row].username!
-        myVC.passtime = post[indexPath.row].time!
-        myVC.postID = post[indexPath.row].postID!
+        myVC.passDes = postarray[indexPath.row].posttxt!
+        myVC.passTopic = postarray[indexPath.row].topic!
+        myVC.passname = postarray[indexPath.row].username!
+        myVC.passtime = postarray[indexPath.row].time!
+        myVC.postID = postarray[indexPath.row].postID!
         myVC.passbartitle = "Found"
-        myVC.passImage = post[indexPath.row].image!
-        let profilePicObject = post[indexPath.row].profilePic
+        myVC.passImage = postarray[indexPath.row].image!
+        let profilePicObject = postarray[indexPath.row].profilePic
         myVC.passProPic = profilePicObject!
-        myVC.passUserID=post[indexPath.row].userID!
-        myVC.postStatus = post[indexPath.row].postStatus!
+        myVC.passUserID=postarray[indexPath.row].userID!
+        myVC.postStatus = postarray[indexPath.row].postStatus!
         
         self.present(myVC, animated: true, completion: nil)
-        post.removeAll()
+        postarray.removeAll()
     }
     
     
@@ -105,7 +138,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
         
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        post.removeAll()
+        postarray.removeAll()
         
         
     }
@@ -142,7 +175,7 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     
     func loadData(){
         
-        self.post.removeAll()
+        self.postarray.removeAll()
         ref.queryOrdered(byChild: "Found").observe(.value, with: { snapshot in
             
             //if !snapshot.exists() { return }
@@ -160,11 +193,11 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
                     post.image = postElement["ImageUrl"] as? String
                     post.userID = postElement["UserID"] as? String
                     post.postStatus = postElement["status"] as? Bool
-                    self.post.append(post)
+                    self.postarray.append(post)
                 }
-                print("post = \(self.post)")
+                print("post = \(self.postarray)")
                 
-                self.post.sort(by: { $0.time! > $1.time! })
+                self.postarray.sort(by: { $0.time! > $1.time! })
                 
                 self.tableView.reloadData()
             }
@@ -173,8 +206,6 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
             
         })
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -186,3 +217,9 @@ class PostFoundViewController: UIViewController, UITableViewDelegate,UITableView
     */
 
 }
+extension PostFoundViewController:UISearchResultsUpdating{
+    func updateSearchResultForSerchController(searchController: UISearchController){
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+}
+
