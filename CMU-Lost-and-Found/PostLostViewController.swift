@@ -55,6 +55,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         cell.postLabel.text = post[indexPath.row].posttxt
         cell.topic.text = post[indexPath.row].topic
         cell.time.text = post[indexPath.row].time
+        cell.statusImg.isHidden = post[indexPath.row].postStatus!
         
         let profilePicObject = post[indexPath.row].profilePic
         if let url = NSURL(string: profilePicObject!) {
@@ -84,8 +85,10 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         myVC.passImage = post[indexPath.row].image!
         let profilePicObject = post[indexPath.row].profilePic
         myVC.passProPic = profilePicObject!
-        
+        myVC.passUserID=post[indexPath.row].userID!
+        myVC.postStatus = post[indexPath.row].postStatus!
         self.present(myVC, animated: true, completion: nil)
+        post.removeAll()
     }
 
     
@@ -154,6 +157,8 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                     post.profilePic = postElement["UserImage"] as? String
                     post.time = postElement["Time"] as? String
                     post.image = postElement["ImageUrl"] as? String
+                    post.userID = postElement["UserID"] as? String
+                    post.postStatus = postElement["status"] as? Bool
                     self.post.append(post)
                 }
                 print("post = \(self.post)")

@@ -23,11 +23,14 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var passProPic	= String()
     var reply = [Reply]()
     var passImage = String()
+    var passUserID = String()
+    var postStatus = Bool()
 
     let profilePicObject = UserDefaults.standard.object(forKey: "profilepic")
     let firstNameObject = UserDefaults.standard.object(forKey: "first_name") as! String
     
     let lastNameObject = UserDefaults.standard.object(forKey: "last_name") as! String
+    let userID = UserDefaults.standard.object(forKey: "id") as! String
     
     var username :String?
     
@@ -38,6 +41,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         username = "\(firstNameObject) \(lastNameObject)"
         navBarPostDetail.topItem?.title = passbartitle
         print(postID)
+        
         
         loadData()
 
@@ -66,6 +70,9 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.des.text = passDes
             cell.name.text = passname
             cell.time.text = passtime
+            if userID == passUserID {
+                cell.completeBtn.isHidden = false
+            }
             if let url = NSURL(string: passProPic) {
                 if let data = NSData(contentsOf: url as URL){
                     cell.profilePic.image = UIImage(data: data as Data)
@@ -92,6 +99,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         else {
+            if postStatus {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! PostReplyTableViewCell
             cell.nameLabel.text = username
             if let url = NSURL(string: profilePicObject as! String) {
@@ -99,9 +107,12 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     cell.profileImage.image = UIImage(data: data as Data)
                 }
             }
-            cell.postID = postID
-            cell.postType = passbartitle
-            return cell
+                cell.postID = postID
+                cell.postType = passbartitle
+                return cell
+            }
+            return UITableViewCell()
+            
             
         }
         
@@ -156,5 +167,11 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         })
     }
 
+    @IBAction func completeTapped(_ sender: Any) {
+        print("Tapp Complete")
+        let ref = FIRDatabase.database().reference().child(passbartitle).child(postID)
+        let status = ["status" : false]
+        ref.updateChildValues(status)
+    }
 
 }

@@ -18,5 +18,6 @@ class Post : NSObject{
     var profilePic:String?
     var time: String?
     var image : String?
-    
+    var userID : String?
+    var postStatus : Bool?
 }

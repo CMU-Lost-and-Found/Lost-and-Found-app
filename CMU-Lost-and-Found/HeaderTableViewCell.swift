@@ -15,6 +15,7 @@ class HeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var topic: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var completeBtn: UIButton!
     
     @IBOutlet weak var des: UITextView!
     
