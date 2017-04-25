@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -323,8 +323,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT3-iS-WlK">
+                                <rect key="frame" x="363" y="662" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="clickPost:" destination="dEz-gr-0MW" eventType="touchUpInside" id="1hB-yy-qzU"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sUn-C6-AGc">
+                                <rect key="frame" x="20" y="700" width="374" height="29"/>
+                                <segments>
+                                    <segment title="Found"/>
+                                    <segment title="Lost"/>
+                                </segments>
+                                <color key="tintColor" red="0.49296433172397508" green="0.20099174522711785" blue="0.90351364211015228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changedPage:" destination="dEz-gr-0MW" eventType="valueChanged" id="5iX-6n-jCn"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="69r-WQ-303">
-                                <rect key="frame" x="0.0" y="114" width="414" height="540"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="582"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postcell" rowHeight="163" id="Czd-Vf-ubV" customClass="PostTableViewCell" customModule="CMU_Lost_and_Found" customModuleProvider="target">
@@ -423,28 +441,9 @@
                                     <outlet property="delegate" destination="dEz-gr-0MW" id="8va-pf-qCN"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT3-iS-WlK">
-                                <rect key="frame" x="363" y="662" width="31" height="30"/>
-                                <state key="normal" title="Post"/>
-                                <connections>
-                                    <action selector="clickPost:" destination="dEz-gr-0MW" eventType="touchUpInside" id="1hB-yy-qzU"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sUn-C6-AGc">
-                                <rect key="frame" x="20" y="700" width="374" height="29"/>
-                                <segments>
-                                    <segment title="Found"/>
-                                    <segment title="Lost"/>
-                                </segments>
-                                <color key="tintColor" red="0.49296433172397508" green="0.20099174522711785" blue="0.90351364211015228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="changedPage:" destination="dEz-gr-0MW" eventType="valueChanged" id="5iX-6n-jCn"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="69r-WQ-303" firstAttribute="top" secondItem="YwV-4k-7RT" secondAttribute="bottom" constant="42" id="A5I-Vr-xc2"/>
                             <constraint firstItem="69r-WQ-303" firstAttribute="centerX" secondItem="sUn-C6-AGc" secondAttribute="centerX" id="JOg-m0-dSh"/>
                             <constraint firstItem="tpK-ug-xp8" firstAttribute="top" secondItem="sUn-C6-AGc" secondAttribute="bottom" constant="8" symbolic="YES" id="K8H-hS-3Pb"/>
                             <constraint firstItem="YwV-4k-7RT" firstAttribute="leading" secondItem="sSD-OM-iad" secondAttribute="leading" id="PRC-2s-ayI"/>
@@ -456,6 +455,7 @@
                             <constraint firstItem="YwV-4k-7RT" firstAttribute="top" secondItem="Brv-vt-WiD" secondAttribute="bottom" constant="8" id="rzy-bX-dJi"/>
                             <constraint firstItem="iT3-iS-WlK" firstAttribute="trailing" secondItem="sUn-C6-AGc" secondAttribute="trailing" id="wbt-fs-R9e"/>
                             <constraint firstItem="YwV-4k-7RT" firstAttribute="leading" secondItem="69r-WQ-303" secondAttribute="leading" id="xIo-16-9s6"/>
+                            <constraint firstItem="69r-WQ-303" firstAttribute="top" secondItem="YwV-4k-7RT" secondAttribute="bottom" id="xPm-ap-Myh"/>
                         </constraints>
                     </view>
                     <connections>

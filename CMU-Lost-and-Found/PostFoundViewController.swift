@@ -60,7 +60,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != ""{
-            print("post count = \(filteredPost.count)")
             return self.filteredPost.count
         }
         return self.postarray.count
@@ -75,7 +74,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         if searchController.isActive && searchController.searchBar.text != ""{
             post = filteredPost[indexPath.row]
-            print(" post555 = \(filteredPost[indexPath.row])")
         }
         else {
             post = postarray[indexPath.row]
@@ -85,9 +83,10 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         cell.topic.text = post.topic
         cell.time.text = post.time
         cell.statusImg.isHidden = post.postStatus!
+        
         let profilePicObject = post.profilePic
         if let url = NSURL(string: profilePicObject!) {
-            if let data = NSData(contentsOf: url as URL){
+            if let data = NSData(contentsOf: url    as URL){
                 cell.profile.image = UIImage(data: data as Data)
             }
         }
