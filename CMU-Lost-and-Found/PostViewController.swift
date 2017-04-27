@@ -111,7 +111,8 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                           "Text": descriptionText.text,
                           "UserImage": profilePicObject!,
                           "Topic": topic.text!,
-                          "ImageUrl" : downloadUrl!] as [String : Any]
+                          "ImageUrl" : downloadUrl!,
+                          "status" : true] as [String : Any]
             ref.updateChildValues(posted)
         
             self.removeAnimate()

@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var btnMenu: UIBarButtonItem!
-
+    let userRef = FIRDatabase.database().reference().child("User")
+    @IBOutlet weak var contact: UILabel!
+    @IBOutlet weak var descrition: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var LinkFBButton: UIButton!
+    @IBOutlet weak var menuBtn: UIButton!
     
+    let userID = UserDefaults.standard.object(forKey: "id") as! String
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData(userID: userID)
+        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         
         self.profilePic.layer.cornerRadius = self.profilePic.frame.height/2
         self.profilePic.clipsToBounds = true
@@ -35,8 +41,7 @@ class ProfileViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
-        btnMenu.target = revealViewController()
-        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
@@ -67,16 +72,29 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func editTapped(_ sender: Any) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditVC") as! EditVC
+        
+        self.addChildViewController(popOverVC)
+        
+        popOverVC.view.frame = self.view.frame
+        
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+    }
     
 
-    /*
-    // MARK: - Navigation
+    func loadData(userID : String) {
+        userRef.child(userID).observe(.value, with: { (snapshot) in
+            print("snapshot : \(snapshot)")
+            if let userDic = snapshot.value as? [String : AnyObject]{
+                
+                self.contact.text =  userDic["Contact"] as? String
+                self.descrition.text = userDic["Description"] as? String
+            }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        })
     }
-    */
+    
 
 }

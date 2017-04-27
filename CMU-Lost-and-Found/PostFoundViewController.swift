@@ -12,9 +12,8 @@ import Firebase
 
 class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var btnMenu: UIBarButtonItem!
     
     var postarray = [Post]()
 
@@ -37,9 +36,7 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        btnMenu.target = revealViewController()
-        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
-        
+        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
@@ -189,26 +186,11 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
                     self.postarray.append(post)
                 }
                 print("post = \(self.postarray)")
-                
                 self.postarray.sort(by: { $0.time! > $1.time! })
-                
                 self.tableView.reloadData()
             }
-            
-            
-            
         })
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension PostFoundViewController:UISearchResultsUpdating{
     func updateSearchResultForSerchController(searchController: UISearchController){

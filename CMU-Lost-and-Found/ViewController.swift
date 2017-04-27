@@ -12,11 +12,13 @@ import FBSDKLoginKit
 import Firebase
 
 class ViewController: UIViewController{
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let _ = UserDefaults.standard.object(forKey: "id"){
+        FBSDKAccessToken.setCurrent(nil)
+        FBSDKProfile.setCurrent(nil)
+        if UserDefaults.standard.object(forKey: "id") != nil {
             performSegue(withIdentifier: "login", sender: nil)
         }
         FBSDKAccessToken.setCurrent(nil)
@@ -40,6 +42,7 @@ class ViewController: UIViewController{
                 print("Successfully")
                 self.showDetail()
                 self.performSegue(withIdentifier: "login", sender: nil)
+                
             }
         }
 

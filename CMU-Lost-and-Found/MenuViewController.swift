@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var profilePic: UIImageView!
@@ -15,7 +16,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     var menulist = ["PostFeed","Profile","Notification","History","Setting","Logout"]
-    var imagelist = ["", "profile.png", "notification.png", "history.png", "setting.png",""]
+    var imagelist = ["Home.png", "usericon.png", "notification.png", "history.png", "setting.png","Logout.png"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,7 +81,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let desController = mainStory.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             present(desController, animated: true, completion: nil)
             UserDefaults.standard.removeObject(forKey: "id")
-        }
             
+        }
+        if cell.menuLable.text == "History" {
+            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
+            
+            let desController = mainStory.instantiateViewController(withIdentifier: "FoundHisVC") as! FoundHisVC
+            revealViewController.pushFrontViewController(desController, animated: true)
+
+            
+        }
+        
     }
 }

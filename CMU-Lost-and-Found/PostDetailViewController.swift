@@ -11,9 +11,10 @@ import FirebaseDatabase
 
 class PostDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var postImage: UIImageView!
-    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navBarPostDetail: UINavigationBar!
+    
+    
     var postID = String()
     var passTopic = String()
     var passDes = String()
@@ -34,15 +35,12 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var username :String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         username = "\(firstNameObject) \(lastNameObject)"
         navBarPostDetail.topItem?.title = passbartitle
         print(postID)
-        
-        
         loadData()
 
         // Do any additional setup after loading the view.
@@ -70,7 +68,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.des.text = passDes
             cell.name.text = passname
             cell.time.text = passtime
-            if userID == passUserID {
+            if userID == passUserID && postStatus{
                 cell.completeBtn.isHidden = false
             }
             if let url = NSURL(string: passProPic) {
@@ -118,6 +116,11 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    @IBAction func postTapped(_ sender: Any) {
+        loadData()
+        tableView.reloadData()
+        tableView.numberOfRows(inSection: reply.count+2)
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if(indexPath.row == 0){
@@ -131,15 +134,8 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
     func loadData(){
         
         let ref = FIRDatabase.database().reference().child(passbartitle).child(postID).child("Reply")
@@ -149,7 +145,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             print("snap = \(snapshot)")
             
             if let postDict = snapshot.value as? [String : AnyObject]{
-                
+                self.reply.removeAll()
                 for(postID,postElement) in postDict{
                     let reply = Reply()
                     reply.postID = postID
@@ -158,6 +154,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     reply.profilePic = postElement["LinkPicture"] as? String
                     reply.time = postElement["Time"] as? String
                     self.reply.append(reply)
+                    print("Reply : \(reply)")
                 }
                 self.reply.sort(by: { $0.time! < $1.time! })
             }

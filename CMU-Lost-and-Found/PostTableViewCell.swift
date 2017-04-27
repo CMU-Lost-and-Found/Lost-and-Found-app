@@ -10,7 +10,6 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postLabel: UILabel!
-
     @IBOutlet weak var statusImg: UIImageView!
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var time: UILabel!

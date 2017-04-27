@@ -13,9 +13,8 @@ import FirebaseDatabase
 class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var btnMenu: UIBarButtonItem!
+    @IBOutlet weak var menuBtn: UIButton!
     
     var postarray = [Post]()
     
@@ -38,9 +37,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        btnMenu.target = revealViewController()
-        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
@@ -97,7 +94,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
         
@@ -160,8 +156,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
 
     }
     
-    
-    
     func loadData(){
         
         self.postarray.removeAll()
@@ -192,12 +186,8 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                 
                 self.tableView.reloadData()
             }
-            
-            
-            
         })
     }
-
 }
 extension PostLostViewController:UISearchResultsUpdating{
     func updateSearchResultForSerchController(searchController: UISearchController){

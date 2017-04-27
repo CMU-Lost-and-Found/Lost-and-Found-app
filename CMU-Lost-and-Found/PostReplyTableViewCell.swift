@@ -49,10 +49,6 @@ class PostReplyTableViewCell: UITableViewCell {
                       "Text": replyText.text,
                       "LinkPicture": profileImageObj! as Any] as [String : Any]
         ref.updateChildValues(posted)
-        
         replyText.text = ""
-        
-
-        
     }
 }
