@@ -24,6 +24,8 @@
 		407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */; };
 		407D382E1E899DCE00D7FF10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */; };
 		407D38301E89A4AC00D7FF10 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D382F1E89A4AC00D7FF10 /* PostViewController.swift */; };
+		408C49061EB2821200593017 /* LostHisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C49051EB2821200593017 /* LostHisVC.swift */; };
+		408C49081EB2881200593017 /* LostHisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C49071EB2881200593017 /* LostHisCell.swift */; };
 		408D6CCE1E933F3B00501023 /* PostFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D6CCD1E933F3B00501023 /* PostFound.swift */; };
 		408D6CD01E933F6100501023 /* PostLost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D6CCF1E933F6100501023 /* PostLost.swift */; };
 		408D6CD21E93405200501023 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408D6CD11E93405200501023 /* Pop.swift */; };
@@ -66,6 +68,8 @@
 		407D382B1E8999D500D7FF10 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		407D382D1E899DCE00D7FF10 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		407D382F1E89A4AC00D7FF10 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		408C49051EB2821200593017 /* LostHisVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostHisVC.swift; sourceTree = "<group>"; };
+		408C49071EB2881200593017 /* LostHisCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostHisCell.swift; sourceTree = "<group>"; };
 		408D6CCD1E933F3B00501023 /* PostFound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFound.swift; sourceTree = "<group>"; };
 		408D6CCF1E933F6100501023 /* PostLost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLost.swift; sourceTree = "<group>"; };
 		408D6CD11E93405200501023 /* Pop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				40D25C3F1E96259A00CECB95 /* PostDetailViewController.swift */,
 				404F43AB1EAFAEAA009AA93D /* EditVC.swift */,
 				40A7E6671EB266DA00C3742E /* FoundHisVC.swift */,
+				408C49051EB2821200593017 /* LostHisVC.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				40BBC0121EA267F700B4B971 /* PostReplyTableViewCell.swift */,
 				40BBC0141EA2682400B4B971 /* ReplyTableViewCell.swift */,
 				40E0DC381EA74791000BAEB9 /* Reply.swift */,
+				408C49071EB2881200593017 /* LostHisCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -366,7 +372,9 @@
 				40A7E6681EB266DA00C3742E /* FoundHisVC.swift in Sources */,
 				6C4B13241E7435BF00E94A37 /* ViewController.swift in Sources */,
 				407D382A1E89999900D7FF10 /* MenuViewController.swift in Sources */,
+				408C49061EB2821200593017 /* LostHisVC.swift in Sources */,
 				408D6CD21E93405200501023 /* Pop.swift in Sources */,
+				408C49081EB2881200593017 /* LostHisCell.swift in Sources */,
 				40994D4E1E92DA8A00852D89 /* LostTableViewCell.swift in Sources */,
 				40E0DC391EA74791000BAEB9 /* Reply.swift in Sources */,
 				407D382C1E8999D500D7FF10 /* MenuTableViewCell.swift in Sources */,

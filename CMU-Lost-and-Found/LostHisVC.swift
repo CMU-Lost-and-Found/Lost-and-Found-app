@@ -1,5 +1,5 @@
 //
-//  FoundHisVC.swift
+//  LostHisVC.swift
 //  CMU-Lost-and-Found
 //
 //  Created by Thitiwat on 4/28/2560 BE.
@@ -9,19 +9,18 @@
 import UIKit
 import Firebase
 
-
-class FoundHisVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuBtn: UIButton!
+class LostHisVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
+    
+    @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+
     var postarray = [Post]()
     let userId = UserDefaults.standard.object(forKey: "id") as! String
     
-    var ref = FIRDatabase.database().reference().child("Found")
+    var ref = FIRDatabase.database().reference().child("Lost")
     var refhandle : UInt!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +44,7 @@ class FoundHisVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoundHis", for: indexPath) as! FoundHisToryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LostHisCell", for: indexPath) as! LostHisCell
         
         let post: Post
         
@@ -54,12 +53,12 @@ class FoundHisVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = post.username
         cell.postLabel.text = post.posttxt
         cell.topic.text = post.topic
-        cell.timeLabel.text = post.time
+        cell.time.text = post.time
         
         let profilePicObject = post.profilePic
         if let url = NSURL(string: profilePicObject!) {
             if let data = NSData(contentsOf: url    as URL){
-                cell.profilePic.image = UIImage(data: data as Data)
+                cell.profileImage.image = UIImage(data: data as Data)
             }
         }
         let img = post.image
@@ -74,9 +73,7 @@ class FoundHisVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func loadData(){
         
         self.postarray.removeAll()
-        ref.queryOrdered(byChild: "Found").observe(.value, with: { snapshot in
-            
-            //if !snapshot.exists() { return }
+        ref.queryOrdered(byChild: "Lost").observe(.value, with: { snapshot in
             
             if let postDict = snapshot.value as? [String : AnyObject]{
                 for(postID,postElement) in postDict{
@@ -101,38 +98,15 @@ class FoundHisVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         })
     }
-    @IBAction func changeView(_ sender: Any) {
-        let revealViewController: SWRevealViewController = self.revealViewController()
-        
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
-            
-            let desController = mainStory.instantiateViewController(withIdentifier:"FoundHisVC") as! FoundHisVC
-            
-            revealViewController.pushFrontViewController(desController, animated: true)
-            
-        case 1:
-            
-            let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
-            
-            let desController = mainStory.instantiateViewController(withIdentifier:"LostHisVC") as! LostHisVC
-            
-            revealViewController.pushFrontViewController(desController, animated: true)
-            
-        default:
-            break
-        }
-
-    }
-    
-    @IBAction func lostTapped(_ sender: Any) {
+   
+    @IBAction func foundTapped(_ sender: Any) {
         let revealViewController: SWRevealViewController = self.revealViewController()
         let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
         
-        let desController = mainStory.instantiateViewController(withIdentifier:"LostHisVC") as! LostHisVC
+        let desController = mainStory.instantiateViewController(withIdentifier:"FoundHisVC") as! FoundHisVC
         
         revealViewController.pushFrontViewController(desController, animated: true)
-    }
-}
 
+    }
+    
+}

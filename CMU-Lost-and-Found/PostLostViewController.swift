@@ -37,6 +37,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        postarray.removeAll()
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -48,11 +49,8 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         tableView.tableHeaderView = searchController.searchBar
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func removeData() {
+        self.postarray.removeAll()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,7 +135,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier:"PostFoundViewController") as! PostFoundViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
             
             revealViewController.pushFrontViewController(desController, animated: true)
             
@@ -146,7 +143,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier:"PostLostViewController") as! PostLostViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
             
             revealViewController.pushFrontViewController(desController, animated: true)
             

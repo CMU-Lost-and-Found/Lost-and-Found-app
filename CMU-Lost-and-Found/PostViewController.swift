@@ -114,6 +114,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                           "ImageUrl" : downloadUrl!,
                           "status" : true] as [String : Any]
             ref.updateChildValues(posted)
+            PostLostViewController().removeData()
         
             self.removeAnimate()
         

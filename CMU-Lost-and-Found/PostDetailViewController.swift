@@ -119,7 +119,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func postTapped(_ sender: Any) {
         loadData()
         tableView.reloadData()
-        tableView.numberOfRows(inSection: reply.count+2)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -167,8 +166,23 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func completeTapped(_ sender: Any) {
         print("Tapp Complete")
         let ref = FIRDatabase.database().reference().child(passbartitle).child(postID)
-        let status = ["status" : false]
-        ref.updateChildValues(status)
+        let alert = UIAlertController(title: "แจ้งปิดการประกาศ", message: "กรุณากดปุ่มยืนยันเพื่อทำการปิดโพส", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ยกเลิก", style: .cancel, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "ยืนยัน", style: .default, handler: { action in
+                print("default")
+                let status = ["status" : false]
+                ref.updateChildValues(status)
+                PostFoundViewController().removeData()
+                PostLostViewController().removeData()
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
+    
 
 }

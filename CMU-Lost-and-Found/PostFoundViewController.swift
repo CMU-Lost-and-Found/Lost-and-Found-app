@@ -35,6 +35,7 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        postarray.removeAll()
         // Do any additional setup after loading the view.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -47,11 +48,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         tableView.tableHeaderView = searchController.searchBar
         
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,11 +106,13 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         myVC.passProPic = profilePicObject!
         myVC.passUserID=postarray[indexPath.row].userID!
         myVC.postStatus = postarray[indexPath.row].postStatus!
-        
         self.present(myVC, animated: true, completion: nil)
         postarray.removeAll()
     }
     
+    func removeData() {
+        self.postarray.removeAll()
+    }
     
     
     
@@ -129,7 +127,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
         postarray.removeAll()
-        
         
     }
     
@@ -158,20 +155,13 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         default:
             break
         }
-        
-        
     }
-    
-    
+
     func loadData(){
         
         self.postarray.removeAll()
         ref.queryOrdered(byChild: "Found").observe(.value, with: { snapshot in
-            
-            //if !snapshot.exists() { return }
-            
             if let postDict = snapshot.value as? [String : AnyObject]{
-
                 for(postID,postElement) in postDict{
                     let post = Post()
                     post.postID = postID
