@@ -17,7 +17,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
     @IBOutlet weak var menuBtn: UIButton!
     
     var postarray = [Post]()
-    
     var ref = FIRDatabase.database().reference().child("Lost")
     var refhandle : UInt!
     let searchController = UISearchController(searchResultsController: nil)
@@ -37,7 +36,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postarray.removeAll()
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -48,11 +46,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
-    
-    func removeData() {
-        self.postarray.removeAll()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != ""{
             return self.filteredPost.count
@@ -107,35 +100,25 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         myVC.passUserID=postarray[indexPath.row].userID!
         myVC.postStatus = postarray[indexPath.row].postStatus!
         self.present(myVC, animated: true, completion: nil)
-        postarray.removeAll()
     }
-
-    
-    
     @IBAction func post(_ sender: Any) {
         
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
-        
         self.addChildViewController(popOverVC)
-        
         popOverVC.view.frame = self.view.frame
-        
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        postarray.removeAll()
     }
     
     
     @IBAction func changView(_ sender: Any) {
         
         let revealViewController: SWRevealViewController = self.revealViewController()
-        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier:"PostFoundViewController") as! PostFoundViewController
-            
             revealViewController.pushFrontViewController(desController, animated: true)
             
         case 1:
@@ -151,18 +134,12 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         }
 
     }
-    
-    func loadData(){
         
-        self.postarray.removeAll()
+    func loadData(){
+        postarray.removeAll()
         ref.queryOrdered(byChild: "Lost").observe(.value, with: { snapshot in
-            
-            //if !snapshot.exists() { return }
-            
             if let postDict = snapshot.value as? [String : AnyObject]{
-                
                 for(postID,postElement) in postDict{
-                    
                     //print(postElement)
                     let post = Post()
                     post.postID = postID
@@ -177,12 +154,14 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                     self.postarray.append(post)
                 }
                 print("post = \(self.postarray)")
-                
                 self.postarray.sort(by: { $0.time! > $1.time! })
-                
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func removeData() {
+        postarray.removeAll()
     }
 }
 extension PostLostViewController:UISearchResultsUpdating{

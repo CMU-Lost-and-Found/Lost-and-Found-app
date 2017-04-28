@@ -43,7 +43,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         print(postID)
         loadData()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +52,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reply.count+2
@@ -110,8 +109,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 return cell
             }
             return UITableViewCell()
-            
-            
         }
         
     }
@@ -133,8 +130,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    
-    
     func loadData(){
         
         let ref = FIRDatabase.database().reference().child(passbartitle).child(postID).child("Reply")
@@ -157,9 +152,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 self.reply.sort(by: { $0.time! < $1.time! })
             }
-            
-            
-            
         })
     }
 
@@ -174,13 +166,10 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("default")
                 let status = ["status" : false]
                 ref.updateChildValues(status)
-                PostFoundViewController().removeData()
-                PostLostViewController().removeData()
+            PostLostViewController().removeData()
+            PostFoundViewController().removeData()
             self.dismiss(animated: true, completion: nil)
         }))
-        
-        
-        
         self.present(alert, animated: true, completion: nil)
     }
     

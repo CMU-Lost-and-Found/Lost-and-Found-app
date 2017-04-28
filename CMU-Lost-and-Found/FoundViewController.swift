@@ -117,10 +117,7 @@ class FoundViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                           "ImageUrl" : downloadUrl!,
                           "status" : true] as [String : Any]
             ref.updateChildValues(posted)
-            PostFoundViewController().removeData()
-            
             self.removeAnimate()
-            
         }
     }
     func showAnimate()

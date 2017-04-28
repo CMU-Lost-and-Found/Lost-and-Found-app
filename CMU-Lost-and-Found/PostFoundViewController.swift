@@ -32,15 +32,12 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     func updateSearchResults(for searchController: UISearchController) {
             filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        postarray.removeAll()
-        // Do any additional setup after loading the view.
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
         loadData()
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -107,14 +104,7 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         myVC.passUserID=postarray[indexPath.row].userID!
         myVC.postStatus = postarray[indexPath.row].postStatus!
         self.present(myVC, animated: true, completion: nil)
-        postarray.removeAll()
     }
-    
-    func removeData() {
-        self.postarray.removeAll()
-    }
-    
-    
     
     @IBAction func clickPost(_ sender: Any) {
         
@@ -126,7 +116,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
-        postarray.removeAll()
         
     }
     
@@ -139,8 +128,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier:"PostFoundViewController") as! PostFoundViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
-            
             revealViewController.pushFrontViewController(desController, animated: true)
             
         case 1:
@@ -148,8 +135,6 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
             let mainStory: UIStoryboard = UIStoryboard(name:"Main", bundle: nil)
             
             let desController = mainStory.instantiateViewController(withIdentifier:"PostLostViewController") as! PostLostViewController
-            //let newFrontViewController = UINavigationController.init(rootViewController:desController)
-            
             revealViewController.pushFrontViewController(desController, animated: true)
             
         default:
@@ -159,7 +144,7 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
 
     func loadData(){
         
-        self.postarray.removeAll()
+        postarray.removeAll()
         ref.queryOrdered(byChild: "Found").observe(.value, with: { snapshot in
             if let postDict = snapshot.value as? [String : AnyObject]{
                 for(postID,postElement) in postDict{
@@ -180,6 +165,10 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func removeData() {
+        postarray.removeAll()
     }
 }
 extension PostFoundViewController:UISearchResultsUpdating{

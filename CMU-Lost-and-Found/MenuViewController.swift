@@ -88,7 +88,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let desController = mainStory.instantiateViewController(withIdentifier: "FoundHisVC") as! FoundHisVC
             revealViewController.pushFrontViewController(desController, animated: true)
-
             
         }
         
