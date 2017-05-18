@@ -291,7 +291,7 @@
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Profile" id="C1h-Eg-AaW">
+                                    <navigationItem title="ประวัติส่วนตัว" id="C1h-Eg-AaW">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="c5o-cZ-cWO">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OA6-hU-66K">
                                                 <rect key="frame" x="20" y="7" width="30" height="30"/>
@@ -389,7 +389,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Czd-Vf-ubV" id="glo-Wl-3pP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="162.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PostLable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZG-d5-QPH">
@@ -1351,7 +1351,7 @@
                                 <color key="backgroundColor" red="0.3283706126" green="0.13557256340000001" blue="0.59392845809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.50196078430000002" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <navigationItem title="Create Lost" id="N14-8F-k5B">
+                                    <navigationItem title="สร้างโพสพบของหาย" id="N14-8F-k5B">
                                         <barButtonItem key="leftBarButtonItem" id="K5H-l9-2dw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ln-MK-VTG">
                                                 <rect key="frame" x="20" y="7" width="83" height="30"/>
@@ -1495,7 +1495,7 @@
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Create Found" id="U7d-oy-VK7">
+                                    <navigationItem title="สร้างโพสแจ้งพบของ" id="U7d-oy-VK7">
                                         <barButtonItem key="leftBarButtonItem" id="kdl-xb-GiQ">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ymy-9x-hge">
                                                 <rect key="frame" x="20" y="7" width="83" height="30"/>

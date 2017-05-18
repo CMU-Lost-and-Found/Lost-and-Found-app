@@ -39,12 +39,15 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
-        loadData()
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        loadData()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != ""{
@@ -101,6 +104,7 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
         myVC.postStatus = postarray[indexPath.row].postStatus!
         self.present(myVC, animated: true, completion: nil)
     }
+    
     @IBAction func post(_ sender: Any) {
         
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
@@ -158,10 +162,6 @@ class PostLostViewController: UIViewController ,UITableViewDelegate,UITableViewD
                 self.tableView.reloadData()
             }
         })
-    }
-    
-    func removeData() {
-        postarray.removeAll()
     }
 }
 extension PostLostViewController:UISearchResultsUpdating{

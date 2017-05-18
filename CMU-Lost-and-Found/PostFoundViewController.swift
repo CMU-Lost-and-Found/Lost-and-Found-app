@@ -16,7 +16,7 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var postarray = [Post]()
-
+    
     var ref = FIRDatabase.database().reference().child("Found")
     var refhandle : UInt!
     let searchController = UISearchController(searchResultsController: nil)
@@ -38,13 +38,17 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: UIControlEvents.touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        loadData()
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        loadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -166,12 +170,8 @@ class PostFoundViewController: UIViewController,UITableViewDelegate,UITableViewD
             }
         })
     }
-    
-    func removeData() {
-        postarray.removeAll()
-    }
 }
-extension PostFoundViewController:UISearchResultsUpdating{
+extension PostFoundViewController:UISearchResultsUpdating{		
     func updateSearchResultForSerchController(searchController: UISearchController){
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }

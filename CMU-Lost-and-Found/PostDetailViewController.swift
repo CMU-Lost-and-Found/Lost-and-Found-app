@@ -166,8 +166,6 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("default")
                 let status = ["status" : false]
                 ref.updateChildValues(status)
-            PostLostViewController().removeData()
-            PostFoundViewController().removeData()
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
